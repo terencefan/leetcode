@@ -23,3 +23,6 @@ int main() {
     cout<<result<<endl;
     return 0;
 }
+
+// references.
+// https://leetcode.com/discuss/9148/my-simple-solution-in-c
