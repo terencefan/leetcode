@@ -6,18 +6,15 @@ __author__ = "stdrickforce"  # Tengyuan Fan
 
 
 class Solution(object):
-    def searchRange(self, nums, target):
+
+    def searchInsert(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
         :rtype: List[int]
         """
 
-        l = self.binarySearch(nums, target, lambda x, y: x < y)
-        r = self.binarySearch(nums, target, lambda x, y: x <= y) - 1
-        if l > r:
-            return [-1, -1]
-        return [l, r]
+        return self.binarySearch(nums, target, lambda x, y: x < y)
 
     def binarySearch(self, nums, target, func):
         l, r = 0, len(nums)
@@ -30,5 +27,5 @@ class Solution(object):
         return l
 
 
-a = [1, 2, 2, 4, 5, 5, 6, 7, 8]
-print Solution().searchRange(a, 3)
+a = [1, 2, 4, 5, 5, 6, 7, 8]
+print Solution().searchInsert(a, 4)
