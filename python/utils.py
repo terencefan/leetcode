@@ -41,8 +41,8 @@ class TreeNode(object):
     def __repr__(self):
         return 'TreeNode(%s)[%s, %s]' % (
             self.val,
-            self.left.val if self.left else '#',
-            self.right.val if self.right else '#',
+            self.left,
+            self.right,
         )
 
 
