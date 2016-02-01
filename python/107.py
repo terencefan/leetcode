@@ -7,7 +7,7 @@ __author__ = "stdrickforce"  # Tengyuan Fan
 
 class Solution(object):
 
-    def levelOrder(self, root):
+    def levelOrderBottom(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
@@ -27,10 +27,11 @@ class Solution(object):
             res.append(r)
             nodes = temp
 
+        res.reverse()
         return res
 
 
 if __name__ == '__main__':
     from utils import Tree
     t = Tree('1234##5')
-    print Solution().levelOrder(t.root)
+    print Solution().levelOrderBottom(t.root)
