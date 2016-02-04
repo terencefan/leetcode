@@ -46,20 +46,24 @@ class TreeNode(object):
         )
 
 
+class TreeLinkNode(TreeNode):
+    pass
+
+
 class Tree(object):
 
-    def __init__(self, s):
+    def __init__(self, s, Node=TreeNode):
 
         if not s:
             return
 
-        self.root = TreeNode(s[0])
+        self.root = Node(s[0])
         i, l, st = 1, len(s), deque([self.root])
 
         def _parseNode(val):
             if val == '#':
                 return None
-            node = TreeNode(val)
+            node = Node(val)
             st.append(node)
             return node
 
