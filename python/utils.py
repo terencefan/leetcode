@@ -39,10 +39,10 @@ class TreeNode(object):
         self.right = None
 
     def __repr__(self):
-        return 'TreeNode(%s)[%s, %s]' % (
+        return 'TreeNode(%s)' % (
             self.val,
-            self.left,
-            self.right,
+            # self.left,
+            # self.right,
         )
 
 
