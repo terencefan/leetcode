@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = "stdrickforce"  # Tengyuan Fan
-# Email: <stdrickforce@gmail.com> <tfan@xingin.com>
+# Author: stdrickforce (Tengyuan Fan)
+# Email: <stdrickforce@gmail.com> <fantengyuan@baixing.com>
 
 from collections import deque
 
