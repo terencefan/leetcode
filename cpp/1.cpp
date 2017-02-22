@@ -24,12 +24,14 @@ public:
     }
 };
 
+void d(int* a) {
+  int c = 3;
+  a = &c;
+}
+
 int main() {
-    int a[4] = {2, 7, 11, 15};
-    vector<int> nums(a, a+3);
-    vector<int> result = Solution().twoSum(nums, 9);
-    for(int i=0;i<result.size();i++) {
-        printf("%d ", result[i]);
-    }
-    return 0;
+  int *a;
+  int b = 2;
+  a = &b;
+  d(a);
 }

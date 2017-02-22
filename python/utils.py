@@ -14,11 +14,7 @@ class ListNode(object):
         self.next = None
 
     def __repr__(self):
-        res, node = [], self
-        while node:
-            res.append(str(node.val))
-            node = node.next
-        return 'List[%s]' % ', '.join(res)
+        return 'ListNode[%s]' % self.val
 
 
 class List(object):

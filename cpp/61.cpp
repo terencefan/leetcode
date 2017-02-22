@@ -14,9 +14,8 @@ public:
         return head;
       }
       ListNode* node = head;
-      ListNode* res = NULL;
       int count = 1;
-      while(node->next) {
+      while (node->next) {
         node = node->next;
         count++;
       }
@@ -26,8 +25,8 @@ public:
         node = node->next;
         k--;
       }
-      res = node->next;
+      head = node->next;
       node->next = NULL;
-      return res;
+      return head;
     }
 };
