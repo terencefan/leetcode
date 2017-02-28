@@ -14,19 +14,19 @@ class Solution(object):
         (1, 0b01010101010101010101010101010101, 0b10101010101010101010101010101010)
     ]
 
-    def reverseBits(self, n):
+    def reverseBits2(self, n):
         n = (n >> 16) | (n << 16)
         for bit, m1, m2 in self.steps:
             n = ((n >> bit) & m1) | ((n << bit) & m2)
         return n
 
-    def reverseBits2(self, n):
+    def reverseBits(self, n):
         res = 0
         for i in range(32):
-            res = res << 1
+            res <<= 1
             res += n & 1
             n = n >> 1
         return res
 
 
-print Solution().reverseBits(43261596)
+print Solution().reverseBits(1)

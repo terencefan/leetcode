@@ -49,3 +49,19 @@ public:
 
     }
 };
+
+
+int main() {
+
+  ListNode a, b, c, d;
+  a.val = 1;
+  b.val = 1;
+  c.val = 1;
+  d.val = 1;
+  a.next = &b;
+  b.next = &c;
+  c.next = &d;
+  Solution().reorderList(&a);
+
+  return 0;
+}
