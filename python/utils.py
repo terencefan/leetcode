@@ -4,6 +4,9 @@
 # Author: stdrickforce (Tengyuan Fan)
 # Email: <stdrickforce@gmail.com> <fantengyuan@baixing.com>
 
+import functools
+import time
+
 from collections import deque
 
 
@@ -69,3 +72,14 @@ class Tree(object):
             if i + 1 < l:
                 node.right = _parseNode(s[i + 1])
             i += 2
+
+
+def profile(func):
+    @functools.wraps(func)
+    def wraps(*args, **kwargs):
+        try:
+            s = time.time()
+            return func(*args, **kwargs)
+        finally:
+            print('Time: %s' % (time.time() - s))
+    return wraps
