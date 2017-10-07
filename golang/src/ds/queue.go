@@ -1,4 +1,4 @@
-package main
+package ds
 
 type Queue struct {
 	nodes []interface{}

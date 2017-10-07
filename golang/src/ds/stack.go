@@ -1,23 +1,23 @@
-package main
+package ds
 
 type Stack struct {
 	nodes []interface{}
 	len   int
 }
 
-func stack(nodes ...interface{}) *Stack {
+func NewStack(nodes ...interface{}) *Stack {
 	var s = Stack{}
 	s.nodes = nodes
 	s.len = len(nodes)
 	return &s
 }
 
-func (s *Stack) push(node interface{}) {
+func (s *Stack) Push(node interface{}) {
 	s.nodes = append(s.nodes[:s.len], node)
 	s.len++
 }
 
-func (s *Stack) pop() interface{} {
+func (s *Stack) Pop() interface{} {
 	if s.len == 0 {
 		return nil
 	}
@@ -25,13 +25,17 @@ func (s *Stack) pop() interface{} {
 	return s.nodes[s.len]
 }
 
-func (s *Stack) back() interface{} {
+func (s *Stack) Back() interface{} {
 	if s.len == 0 {
 		return nil
 	}
 	return s.nodes[s.len-1]
 }
 
-func (s *Stack) all() []interface{} {
+func (s *Stack) All() []interface{} {
 	return s.nodes[:s.len]
+}
+
+func (s *Stack) Len() int {
+	return s.len
 }
