@@ -5,6 +5,8 @@ import (
 	"p295"
 	"p316"
 	"p363"
+	"p367"
+	"p468"
 	"p530"
 )
 
@@ -51,14 +53,14 @@ func run363() {
 	_ = append(s, 4)
 }
 
+func run367() {
+	fmt.Println(p367.IsPerfectSquare(168))
+}
+
+func run468() {
+	fmt.Println(p468.ValidIPAddress("192.168.0.1"))
+}
+
 func main() {
-	var a = []int{}
-	var k = 0
-	for {
-		a = append(a, 1)
-		if k != cap(a) {
-			k = cap(a)
-			fmt.Println(k)
-		}
-	}
+	run468()
 }
