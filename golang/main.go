@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+	"p210"
 	"p295"
 	"p316"
 	"p363"
 	"p367"
 	"p468"
 	"p530"
+	"p638"
 )
 
 func run540() {
@@ -61,6 +63,26 @@ func run468() {
 	fmt.Println(p468.ValidIPAddress("192.168.0.1"))
 }
 
+func run210() {
+	var a = make([][]int, 4)
+	a[0] = []int{1, 0}
+	a[1] = []int{2, 0}
+	a[2] = []int{3, 1}
+	a[3] = []int{3, 2}
+	fmt.Println(p210.FindOrder(4, a))
+}
+
+func run638() {
+	fmt.Println(p638.ShoppingOffers(
+		[]int{2, 5},
+		[][]int{
+			[]int{3, 0, 5},
+			[]int{1, 2, 10},
+		},
+		[]int{3, 2},
+	))
+}
+
 func main() {
-	run468()
+	run638()
 }
