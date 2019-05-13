@@ -1,4 +1,4 @@
-package p295
+package main
 
 import "container/heap"
 

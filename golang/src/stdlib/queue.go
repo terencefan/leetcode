@@ -1,4 +1,4 @@
-package ds
+package stdlib
 
 type Queue struct {
 	nodes []interface{}

@@ -1,4 +1,4 @@
-package p189
+package main
 
 func Rotate(nums []int, k int) {
 	var l = len(nums)

@@ -1,4 +1,4 @@
-package p667
+package main
 
 func ConstructArray(n int, k int) []int {
 	var i, j, p = 1, n, 0

@@ -1,4 +1,4 @@
-package ds
+package stdlib
 
 type Stack struct {
 	nodes []interface{}

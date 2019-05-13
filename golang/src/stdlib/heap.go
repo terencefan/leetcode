@@ -1,4 +1,4 @@
-package ds
+package stdlib
 
 import (
 	"container/heap"
