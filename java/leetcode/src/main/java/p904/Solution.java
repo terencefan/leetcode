@@ -1,4 +1,4 @@
-package S904;
+package p904;
 
 public class Solution {
     public int totalFruit(int[] tree) {

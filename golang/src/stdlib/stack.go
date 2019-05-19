@@ -1,41 +1,40 @@
 package stdlib
 
 type Stack struct {
-	nodes []interface{}
-	len   int
+	nodes  []interface{}
+	length int
 }
 
 func NewStack(nodes ...interface{}) *Stack {
-	var s = Stack{}
-	s.nodes = nodes
-	s.len = len(nodes)
-	return &s
+	return &Stack{
+		nodes:  nodes,
+		length: len(nodes),
+	}
 }
 
 func (s *Stack) Push(node interface{}) {
-	s.nodes = append(s.nodes[:s.len], node)
-	s.len++
+	s.nodes = append(s.nodes[:s.length], node)
+	s.length++
 }
 
 func (s *Stack) Pop() interface{} {
-	if s.len == 0 {
-		return nil
-	}
-	s.len--
-	return s.nodes[s.len]
+	defer func() {
+		s.length--
+	}()
+	return s.Peek()
 }
 
-func (s *Stack) Back() interface{} {
-	if s.len == 0 {
+func (s *Stack) Peek() interface{} {
+	if s.length == 0 {
 		return nil
 	}
-	return s.nodes[s.len-1]
+	return s.nodes[s.length- 1]
 }
 
 func (s *Stack) All() []interface{} {
-	return s.nodes[:s.len]
+	return s.nodes[:s.length]
 }
 
 func (s *Stack) Len() int {
-	return s.len
+	return s.length
 }

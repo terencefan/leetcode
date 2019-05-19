@@ -1,7 +1,6 @@
-package S5;
+package p647;
 
 public class Solution {
-
     private char[] s;
     private int[] len;
 
@@ -45,32 +44,14 @@ public class Solution {
         }
     }
 
-    public String longestPalindrome(String str) {
+    public int countSubstrings(String str) {
         expand(str);
         calculate();
 
-        int max = 0, p = 0;
+        int n = 0;
         for (int i = 0; i < len.length; i++) {
-            if (len[i] > max) {
-                p = i;
-                max = len[i];
-            }
+            n += len[i] / 2;
         }
-
-        char[] n = new char[2 * max - 1];
-        n[max - 1] = s[p];
-
-        for (int i = 1; i < max; i++) {
-            n[max - 1 - i] = s[p - i];
-            n[max - 1 + i] = s[p + i];
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n.length; i++) {
-            if (n[i] != SPLITTER) {
-                sb.append(n[i]);
-            }
-        }
-        return sb.toString();
+        return n;
     }
 }
