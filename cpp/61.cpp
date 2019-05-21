@@ -1,32 +1,33 @@
 #include <iostream>
+
 using namespace std;
 
 struct ListNode {
     int val;
-    ListNode *next;
+    ListNode* next;
 };
 
 
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-      if(head == NULL || k == 0) {
+        if (head == NULL || k == 0) {
+            return head;
+        }
+        ListNode* node = head;
+        int count = 1;
+        while (node->next) {
+            node = node->next;
+            count++;
+        }
+        node->next = head;
+        k = count - k % count;
+        while (k > 0) {
+            node = node->next;
+            k--;
+        }
+        head = node->next;
+        node->next = NULL;
         return head;
-      }
-      ListNode* node = head;
-      int count = 1;
-      while (node->next) {
-        node = node->next;
-        count++;
-      }
-      node->next = head;
-      k = count - k % count;
-      while(k > 0) {
-        node = node->next;
-        k--;
-      }
-      head = node->next;
-      node->next = NULL;
-      return head;
     }
 };

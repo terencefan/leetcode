@@ -8,8 +8,8 @@ func main() {
 	r := ShoppingOffers(
 		[]int{2, 5},
 		[][]int{
-			[]int{3, 0, 5},
-			[]int{1, 2, 10},
+			{3, 0, 5},
+			{1, 2, 10},
 		},
 		[]int{3, 2},
 	)

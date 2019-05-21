@@ -1,36 +1,37 @@
 #include <iostream>
 #include <stack>
+
 using namespace std;
 
 class MinStack {
 
-    protected:
-        stack<int> s1;
-        stack<int> s2;
+protected:
+    stack<int> s1;
+    stack<int> s2;
 
-    public:
+public:
 
-        void push(int x) {
-            s1.push(x);
-            if(s2.empty() || x <= getMin()) {
-                s2.push(x);
-            }
+    void push(int x) {
+        s1.push(x);
+        if (s2.empty() || x <= getMin()) {
+            s2.push(x);
         }
+    }
 
-        void pop() {
-            if(top() == getMin()) {
-                s2.pop();
-            }
-            s1.pop();
+    void pop() {
+        if (top() == getMin()) {
+            s2.pop();
         }
+        s1.pop();
+    }
 
-        int top() {
-            return s1.top();
-        }
+    int top() {
+        return s1.top();
+    }
 
-        int getMin() {
-            return s2.top();
-        }
+    int getMin() {
+        return s2.top();
+    }
 
 };
 
@@ -42,5 +43,5 @@ int main() {
     s.getMin();
     s.pop();
     s.getMin();
-    cout<<"finish"<<endl;
+    cout << "finish" << endl;
 }
