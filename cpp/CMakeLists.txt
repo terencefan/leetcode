@@ -4,5 +4,5 @@ project(cpp)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(cpp
-    138.cpp
+    p341/solution.cpp
     )
