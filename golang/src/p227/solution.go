@@ -60,7 +60,7 @@ func (s *Stack) pop() (r int) {
 func calculate(s string) int {
 	nums := make(Stack, 0)
 	opts := make(Stack, 0)
-	opts.push('$')
+	opts.push(BGN)
 
 	num := 0
 	for i := 0; i < len(s); i++ {
@@ -81,15 +81,11 @@ func calculate(s string) int {
 			return 0
 		}
 	}
-	nums.push(num)
 
 	for opts.peek() != BGN {
-		function := functions[opts.pop()]
-		a, b := nums.pop(), nums.pop()
-		num := function(b, a)
-		nums.push(num)
+		num = functions[opts.pop()](nums.pop(), num)
 	}
-	return nums.peek()
+	return num
 }
 
 func main() {
