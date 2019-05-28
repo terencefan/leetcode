@@ -41,4 +41,5 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print Solution().mergeKLists([[1, 3, 5], [2, 9, 10], [6, 11]])
+    r = Solution().mergeKLists([[1, 3, 5], [2, 9, 10], [6, 11]])
+    print(r)
