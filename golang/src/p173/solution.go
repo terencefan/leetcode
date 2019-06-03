@@ -11,12 +11,12 @@ func (s *Stack) len() int {
 }
 
 func (s *Stack) peek() *TreeNode {
-	return (*s)[s.len() - 1]
+	return (*s)[s.len()-1]
 }
 
 func (s *Stack) pop() (node *TreeNode) {
 	node = s.peek()
-	*s = (*s)[:s.len() - 1]
+	*s = (*s)[:s.len()-1]
 	return
 }
 
@@ -36,7 +36,6 @@ func Constructor(root *TreeNode) BSTIterator {
 	return BSTIterator{stack}
 }
 
-
 /** @return the next smallest number */
 func (it *BSTIterator) Next() (r int) {
 	node := it.stack.pop()
@@ -51,8 +50,11 @@ func (it *BSTIterator) Next() (r int) {
 	return r
 }
 
-
 /** @return whether we have a next smallest number */
 func (it *BSTIterator) HasNext() bool {
 	return len(it.stack) > 0
+}
+
+func main() {
+
 }

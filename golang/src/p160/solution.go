@@ -7,6 +7,7 @@ type ListNode struct {
 }
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
+
 	a, b := 0, 0
 	var node *ListNode
 
