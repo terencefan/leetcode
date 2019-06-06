@@ -13,9 +13,9 @@ func min(a, b int) int {
 }
 
 func diff(l, r string, g *G) {
-	for i:=0; i < min(len(l), len(r)); i++ {
+	for i := 0; i < min(len(l), len(r)); i++ {
 		if l[i] != r[i] {
-			g.add(l[i] - 'a', r[i] - 'a')
+			g.add(l[i]-'a', r[i]-'a')
 			break
 		}
 	}
@@ -66,7 +66,7 @@ func topologySort(g *G, chars []int) []byte {
 		if cur > 25 {
 			break
 		}
-		res = append(res, byte(cur + 'a'))
+		res = append(res, byte(cur+'a'))
 		chars[cur] = -1
 
 		nexts := g.v[cur]
@@ -90,14 +90,14 @@ func topologySort(g *G, chars []int) []byte {
 func alienOrder(words []string) string {
 	var g = &G{make(map[byte][]byte)}
 
-	for i := 0; i < len(words) - 1; i++ {
-		diff(words[i], words[i + 1], g)
+	for i := 0; i < len(words)-1; i++ {
+		diff(words[i], words[i+1], g)
 	}
 
 	var chars = make([]int, 26)
 	for _, word := range words {
 		for _, c := range word {
-			chars[c - 'a'] = -1
+			chars[c-'a'] = -1
 		}
 	}
 
@@ -106,7 +106,7 @@ func alienOrder(words []string) string {
 }
 
 func main() {
-	r:= alienOrder([]string{
+	r := alienOrder([]string{
 		"wrt",
 		"wrf",
 	})

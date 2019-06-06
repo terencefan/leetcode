@@ -1,9 +1,8 @@
 package main
 
-
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
@@ -24,11 +23,11 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	}
 
 	if a > b {
-		for i := 0; i < a - b; i++ {
+		for i := 0; i < a-b; i++ {
 			headA = headA.Next
 		}
 	} else {
-		for i := 0; i < b - 1; i++ {
+		for i := 0; i < b-1; i++ {
 			headB = headB.Next
 		}
 	}

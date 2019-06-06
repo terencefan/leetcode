@@ -19,7 +19,7 @@ func test(nums []int, k int, m int) bool {
 	for _, num := range nums {
 		if num > k {
 			return false
-		} else if t + num > k {
+		} else if t+num > k {
 			t = num
 			m--
 		} else {
@@ -31,7 +31,6 @@ func test(nums []int, k int, m int) bool {
 	}
 	return true
 }
-
 
 func splitArray(nums []int, m int) int {
 	if m > len(nums) {
@@ -47,7 +46,7 @@ func splitArray(nums []int, m int) int {
 
 	l, r := max, sum
 	for l < r {
-		mid := l + (r - l) / 2
+		mid := l + (r-l)/2
 		if test(nums, mid, m) {
 			r = mid
 		} else {
@@ -59,6 +58,6 @@ func splitArray(nums []int, m int) int {
 
 func main() {
 	// test([]int{7,2,5,10,8}, 14, 2)
-	r := splitArray([]int{7,2,5,10,8}, 2)
+	r := splitArray([]int{7, 2, 5, 10, 8}, 2)
 	fmt.Println(r)
 }

@@ -19,7 +19,7 @@ func maxChainSum(root *TreeNode) int {
 	left = max(0, left)
 	right = max(0, right)
 
-	r = max(r, left + right + root.Val)
+	r = max(r, left+right+root.Val)
 	return max(left, right) + root.Val
 }
 

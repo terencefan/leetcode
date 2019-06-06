@@ -40,7 +40,7 @@ func (g *graph) len() int {
 }
 
 func copy(m map[int]bool, x int) (n map[int]bool) {
-	n = make(map[int]bool, len(m) + 1)
+	n = make(map[int]bool, len(m)+1)
 	for k, v := range m {
 		n[k] = v
 	}
@@ -50,13 +50,13 @@ func copy(m map[int]bool, x int) (n map[int]bool) {
 
 func ladderLength(beginWord string, endWord string, wordList []string) int {
 	var m = make(map[string]int)
-	var g = make(graph, len(wordList) + 1)
+	var g = make(graph, len(wordList)+1)
 	var endIndex = 0
 
 	for i, word := range wordList {
 		m[word] = i + 1
 		if hasRoute(beginWord, word) {
-			g.add(0, i + 1)
+			g.add(0, i+1)
 		}
 		if word == endWord {
 			endIndex = i + 1
@@ -105,7 +105,7 @@ func main() {
 	r := ladderLength(
 		"hit",
 		"cog",
-		[]string{"hot","dot","dog","lot","log","cog"},
+		[]string{"hot", "dot", "dog", "lot", "log", "cog"},
 	)
 	fmt.Println(r)
 }

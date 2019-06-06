@@ -6,7 +6,8 @@ import (
 
 func isPowerOfThree(n int) bool {
 	x := 1
-	for ;x < n; x *= 3 {}
+	for ; x < n; x *= 3 {
+	}
 	return x == n
 }
 

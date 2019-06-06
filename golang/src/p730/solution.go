@@ -10,5 +10,3 @@ func countPalindromicSubsequences(S string) int {
 	}
 	return 1
 }
-
-

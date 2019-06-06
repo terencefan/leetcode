@@ -1,9 +1,8 @@
 package main
 
-
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func reverseList(head *ListNode) *ListNode {
@@ -13,6 +12,6 @@ func reverseList(head *ListNode) *ListNode {
 		head.Next = pre
 		pre = head
 		head = post
-    }
+	}
 	return pre
 }

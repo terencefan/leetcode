@@ -9,7 +9,7 @@ func ich(b byte) int {
 }
 
 func isEmpty(arr []int) bool {
-	for i:=0;i<26;i++ {
+	for i := 0; i < 26; i++ {
 		if arr[i] != 0 {
 			return false
 		}
@@ -18,7 +18,7 @@ func isEmpty(arr []int) bool {
 }
 
 func findAnagrams(s string, p string) []int {
-	if len(p) - len(s) > 0 {
+	if len(p)-len(s) > 0 {
 		return make([]int, 0)
 	}
 
@@ -35,18 +35,18 @@ func findAnagrams(s string, p string) []int {
 	}
 
 	r := make([]int, 0)
-	for i := 0; i < len(s) - len(p); i++ {
+	for i := 0; i < len(s)-len(p); i++ {
 		if pivot == 0 && isEmpty(arr) {
 			r = append(r, i)
 		}
-		s1, s2 := ich(s[i]), ich(s[i + len(p)])
+		s1, s2 := ich(s[i]), ich(s[i+len(p)])
 
 		pivot += s1 - s2
 		arr[s2]--
 		arr[s1]++
 	}
 	if pivot == 0 && isEmpty(arr) {
-		r = append(r, len(s) - len(p))
+		r = append(r, len(s)-len(p))
 	}
 
 	return r

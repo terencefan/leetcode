@@ -26,16 +26,16 @@ func New(x, y int) Node {
 }
 
 type Solver struct {
-	grid [][]int
+	grid          [][]int
 	height, width int
-	buildings []Node
+	buildings     []Node
 }
 
 func Construct(grid [][]int) Solver {
 	return Solver{
-		grid: grid,
-		height: len(grid),
-		width: len(grid[0]),
+		grid:      grid,
+		height:    len(grid),
+		width:     len(grid[0]),
 		buildings: make([]Node, 0),
 	}
 }
@@ -88,7 +88,7 @@ func (s *Solver) bfs(start Node, cap int) (r int) {
 				r += steps
 			case EMPTY:
 				for _, d := range ds {
-					nx, ny := x + d[0], y + d[1]
+					nx, ny := x+d[0], y+d[1]
 					if !s.isValid(nx, ny) {
 						continue
 					}
@@ -117,8 +117,8 @@ func shortestDistance(grid [][]int) int {
 		return -1
 	}
 
-	currentMin := 1 << 32 - 1
-	for i := range grid{
+	currentMin := 1<<32 - 1
+	for i := range grid {
 		for j := range grid[i] {
 			if s.grid[i][j] != EMPTY {
 				continue
@@ -129,7 +129,7 @@ func shortestDistance(grid [][]int) int {
 			}
 		}
 	}
-	if currentMin == 1 << 32 - 1 {
+	if currentMin == 1<<32-1 {
 		return -1
 	}
 	return currentMin
@@ -137,13 +137,13 @@ func shortestDistance(grid [][]int) int {
 
 func main() {
 	r := shortestDistance([][]int{
-		{1,1,1,1,1,0},
-		{0,0,0,0,0,1},
-		{0,1,1,0,0,1},
-		{1,0,0,1,0,1},
-		{1,0,1,0,0,1},
-		{1,0,0,0,0,1},
-		{0,1,1,1,1,0},
+		{1, 1, 1, 1, 1, 0},
+		{0, 0, 0, 0, 0, 1},
+		{0, 1, 1, 0, 0, 1},
+		{1, 0, 0, 1, 0, 1},
+		{1, 0, 1, 0, 0, 1},
+		{1, 0, 0, 0, 0, 1},
+		{0, 1, 1, 1, 1, 0},
 	})
 	fmt.Println(r)
 }

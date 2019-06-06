@@ -20,12 +20,12 @@ func jump_bfs(nums []int) int {
 			pos := q[i]
 
 			for k := nums[pos]; k >= 1; k-- {
-				if pos + k > len(nums) - 1 {
+				if pos+k > len(nums)-1 {
 					continue
-				} else if pos + k == len(nums) - 1 {
+				} else if pos+k == len(nums)-1 {
 					return steps + 1
 				} else {
-					m[pos + k] = true
+					m[pos+k] = true
 				}
 			}
 		}
@@ -40,6 +40,6 @@ func jump_bfs(nums []int) int {
 }
 
 func main() {
-	r := jump_bfs([]int{2,3,1,1,4})
+	r := jump_bfs([]int{2, 3, 1, 1, 4})
 	fmt.Println(r)
 }

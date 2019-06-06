@@ -12,7 +12,7 @@ const (
 	DIV = '/'
 )
 
-var priorities = map[int]int {
+var priorities = map[int]int{
 	BGN: 0,
 	ADD: 1,
 	SUB: 1,
@@ -44,7 +44,7 @@ func (s Stack) len() int {
 }
 
 func (s Stack) peek() int {
-	return s[s.len() - 1]
+	return s[s.len()-1]
 }
 
 func (s *Stack) push(x int) {
@@ -53,7 +53,7 @@ func (s *Stack) push(x int) {
 
 func (s *Stack) pop() (r int) {
 	r = s.peek()
-	*s = (*s)[:s.len() - 1]
+	*s = (*s)[:s.len()-1]
 	return
 }
 

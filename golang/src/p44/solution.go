@@ -30,9 +30,9 @@ func isMatch(s string, p string) bool {
 			tj = j
 			j++
 		} else if ti < 0 {
-				return false
+			return false
 		} else {
-			i, j = ti + 1, tj + 1
+			i, j = ti+1, tj+1
 			ti = i
 		}
 	}

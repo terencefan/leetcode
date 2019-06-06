@@ -5,9 +5,9 @@ import (
 )
 
 type TrieNode struct {
-	arr   []*TrieNode
+	arr      []*TrieNode
 	terminal bool
-	times int
+	times    int
 }
 
 func NewTrieNode() *TrieNode {
@@ -19,8 +19,8 @@ func NewTrieNode() *TrieNode {
 }
 
 type Trie struct {
-	root *TrieNode
-	times int
+	root   *TrieNode
+	times  int
 	length int
 }
 
@@ -80,7 +80,7 @@ func findSubstring(s string, words []string) (r []int) {
 		t.Add(word)
 	}
 
-	for i := 0; i < len(s) - t.length + 1; i++ {
+	for i := 0; i < len(s)-t.length+1; i++ {
 		if match(t, s[i:]) {
 			r = append(r, i)
 		}

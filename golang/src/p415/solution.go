@@ -12,8 +12,8 @@ func addStrings(num1 string, num2 string) string {
 
 	b := make([]byte, p)
 
-	for i := p - 1; i >= p - q; i-- {
-		b[i] = num2[i - p + q] - '0' + num1[i] + d
+	for i := p - 1; i >= p-q; i-- {
+		b[i] = num2[i-p+q] - '0' + num1[i] + d
 		d = 0
 		if b[i] > '9' {
 			b[i] -= 10

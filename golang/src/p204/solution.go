@@ -10,7 +10,7 @@ func countPrimes1(n int) int {
 	for x := 2; x < n; x++ {
 		b := true
 		for _, y := range s {
-			if x % y == 0 {
+			if x%y == 0 {
 				b = false
 				break
 			}
@@ -25,7 +25,7 @@ func countPrimes1(n int) int {
 func countPrimes(n int) (r int) {
 	s := make([]bool, n)
 
-	for x := 2; x * x < n; x++ {
+	for x := 2; x*x < n; x++ {
 		if !s[x] {
 			for i := x * x; i < n; i += x {
 				s[i] = true

@@ -32,8 +32,8 @@ func (a *IntArray) Push(i interface{}) {
 }
 
 func (a *IntArray) Pop() (r interface{}) {
-	r = a.arr[a.Len() - 1]
-	a.arr = a.arr[:a.Len() - 1]
+	r = a.arr[a.Len()-1]
+	a.arr = a.arr[:a.Len()-1]
 	return
 }
 
@@ -43,7 +43,6 @@ func topKFrequent(nums []int, k int) (r []int) {
 	for _, num := range nums {
 		m[num]++
 	}
-
 
 	arr := &IntArray{make([]*Node, 0)}
 	heap.Init(arr)
@@ -62,6 +61,6 @@ func topKFrequent(nums []int, k int) (r []int) {
 }
 
 func main() {
-	r := topKFrequent([]int{1,1,1,2,2,3}, 2)
+	r := topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)
 	fmt.Print(r)
 }

@@ -5,9 +5,9 @@ import (
 )
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func max(a, b int) int {
@@ -24,7 +24,7 @@ func recursive(node *TreeNode) (r, l int) {
 	} else {
 		r1, l1 := recursive(node.Left)
 		r2, l2 := recursive(node.Right)
-		return max(max(r1, r2), l1 + l2 + 1), max(l1, l2) + 1
+		return max(max(r1, r2), l1+l2+1), max(l1, l2) + 1
 	}
 }
 

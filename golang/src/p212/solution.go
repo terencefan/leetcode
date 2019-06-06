@@ -92,16 +92,16 @@ func dfs(board Board, x, y int, node *TrieNode) {
 
 	board[x][y] = 0
 	if x > 0 {
-		dfs(board, x - 1, y, node)
+		dfs(board, x-1, y, node)
 	}
 	if y > 0 {
-		dfs(board, x, y - 1, node)
+		dfs(board, x, y-1, node)
 	}
-	if x < board.height() - 1 {
-		dfs(board, x + 1, y, node)
+	if x < board.height()-1 {
+		dfs(board, x+1, y, node)
 	}
-	if y < board.width() - 1 {
-		dfs(board, x, y + 1, node)
+	if y < board.width()-1 {
+		dfs(board, x, y+1, node)
 	}
 	board[x][y] = b
 

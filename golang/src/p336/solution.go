@@ -5,21 +5,21 @@ import (
 )
 
 type TrieNode struct {
-	arr 	[]*TrieNode
-	index   int
-	end     bool
+	arr   []*TrieNode
+	index int
+	end   bool
 }
 
 func newTrieNode() *TrieNode {
 	return &TrieNode{
-		arr:     make([]*TrieNode, 26),
-		index : 0,
-		end: false,
+		arr:   make([]*TrieNode, 26),
+		index: 0,
+		end:   false,
 	}
 }
 
 type Trie struct {
-	root 	*TrieNode
+	root    *TrieNode
 	indexes []int
 }
 
@@ -59,7 +59,7 @@ func (t *Trie) match(right int, word string, full bool) []int {
 
 	node := t.root
 	for i := 0; i < len(word); i++ {
-		if node.end == true && testStr(word, i, len(word) - 1) {
+		if node.end == true && testStr(word, i, len(word)-1) {
 			if node.index != right {
 				r = append(r, node.index)
 			}
@@ -85,7 +85,7 @@ func (t *Trie) match(right int, word string, full bool) []int {
 func reverse(s string) string {
 	r := make([]byte, len(s))
 	for i := 0; i < len(s); i++ {
-		r[len(s) - i - 1] = s[i]
+		r[len(s)-i-1] = s[i]
 	}
 	return string(r)
 }
@@ -118,6 +118,6 @@ func palindromePairs(words []string) (r [][]int) {
 }
 
 func main() {
-	r := palindromePairs([]string{"ab","ba","abc","cba"})
+	r := palindromePairs([]string{"ab", "ba", "abc", "cba"})
 	fmt.Println(r)
 }

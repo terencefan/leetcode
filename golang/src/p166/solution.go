@@ -25,7 +25,7 @@ func fractionToDecimal(numerator int, denominator int) string {
 	if numerator < denominator {
 		intp = append(intp, '0')
 	} else {
-		intp = append(intp, strconv.Itoa(numerator / denominator)...)
+		intp = append(intp, strconv.Itoa(numerator/denominator)...)
 	}
 
 	numerator = numerator % denominator
@@ -42,14 +42,14 @@ func fractionToDecimal(numerator int, denominator int) string {
 		v := numerator / denominator
 		numerator = numerator % denominator
 
-		r := m[numerator * 10 + v]
+		r := m[numerator*10+v]
 		if r > 0 {
 			result := string(intp) + "." + string(intf[:r-1]) + "(" + string(intf[r-1:]) + ")"
 			return result
 		}
-		intf = append(intf, byte(v + '0'))
+		intf = append(intf, byte(v+'0'))
 		pos++
-		m[numerator * 10 + v] = pos
+		m[numerator*10+v] = pos
 	}
 	return string(intp) + "." + string(intf)
 }

@@ -4,13 +4,13 @@ import (
 	"fmt"
 )
 
-func moveZeroes(nums []int)  {
+func moveZeroes(nums []int) {
 	offset := 0
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == 0 {
 			offset++
 		} else if offset > 0 {
-			nums[i], nums[i - offset] = nums[i - offset], nums[i]
+			nums[i], nums[i-offset] = nums[i-offset], nums[i]
 		}
 	}
 }

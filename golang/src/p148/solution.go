@@ -5,8 +5,8 @@ import (
 )
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func merge(p, q *ListNode) *ListNode {

@@ -20,7 +20,7 @@ func longestSubstring(s string, k int) int {
 	var arr = make([]int, 26)
 
 	for i := 0; i < len(s); i++ {
-		arr[s[i] - 'a']++
+		arr[s[i]-'a']++
 	}
 
 	b := true
@@ -35,7 +35,7 @@ func longestSubstring(s string, k int) int {
 
 	pre, r := 0, 0
 	for i := 0; i < len(s); i++ {
-		if arr[s[i] - 'a'] < k {
+		if arr[s[i]-'a'] < k {
 			r = max(r, longestSubstring(s[pre:i], k))
 			pre = i + 1
 		}

@@ -17,9 +17,9 @@ func insert(intervals [][]int, newInterval []int) (r [][]int) {
 		return [][]int{newInterval}
 	}
 
-	lo, hi := 0, len(intervals) - 1
+	lo, hi := 0, len(intervals)-1
 	for lo <= hi {
-		mid := lo + (hi - lo) / 2
+		mid := lo + (hi-lo)/2
 		if newInterval[0] >= intervals[mid][0] {
 			lo = mid + 1
 		} else {
@@ -27,7 +27,7 @@ func insert(intervals [][]int, newInterval []int) (r [][]int) {
 		}
 	}
 
-	i, j := lo - 1, lo - 1
+	i, j := lo-1, lo-1
 	for ; i >= 0; i-- {
 		if intervals[i][1] < newInterval[0] {
 			break
@@ -51,7 +51,7 @@ func insert(intervals [][]int, newInterval []int) (r [][]int) {
 
 func main() {
 	r := insert([][]int{
-		{1,5},
+		{1, 5},
 	}, []int{0, 0})
 	fmt.Println(r)
 }

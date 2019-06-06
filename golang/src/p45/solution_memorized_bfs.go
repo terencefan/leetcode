@@ -27,14 +27,14 @@ func jump_memorized_bfs(nums []int) int {
 		for i := 0; i < length; i++ {
 			pos := q[i]
 
-			for k := minp(nums[pos], len(nums) - pos - 1); k >= 1; k-- {
-				if pos + k == len(nums) - 1 {
+			for k := minp(nums[pos], len(nums)-pos-1); k >= 1; k-- {
+				if pos+k == len(nums)-1 {
 					return steps + 1
-				} else if dp[pos + k] > 0 && dp[pos + k] <= steps + 1 {
+				} else if dp[pos+k] > 0 && dp[pos+k] <= steps+1 {
 					continue
 				} else {
-					dp[pos + k] = steps + 1
-					m[pos + k] = true
+					dp[pos+k] = steps + 1
+					m[pos+k] = true
 				}
 			}
 		}
@@ -49,6 +49,6 @@ func jump_memorized_bfs(nums []int) int {
 }
 
 func main() {
-	r := jump([]int{2,3,1,1,4})
+	r := jump([]int{2, 3, 1, 1, 4})
 	fmt.Println(r)
 }

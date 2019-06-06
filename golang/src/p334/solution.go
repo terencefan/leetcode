@@ -25,16 +25,16 @@ func increasingTriplet(nums []int) bool {
 
 	left[0] = nums[0]
 	for i := 1; i < l; i++ {
-		left[i] = min(left[i - 1], nums[i])
+		left[i] = min(left[i-1], nums[i])
 	}
 
-	right[l - 1] = nums[l - 1]
+	right[l-1] = nums[l-1]
 	for i := l - 2; i >= 0; i-- {
-		right[i] = max(right[i + 1], nums[i])
+		right[i] = max(right[i+1], nums[i])
 	}
 
-	for i := 1; i < l - 1; i++ {
-		if left[i - 1] < nums[i] && right[i + 1] > nums[i] {
+	for i := 1; i < l-1; i++ {
+		if left[i-1] < nums[i] && right[i+1] > nums[i] {
 			return true
 		}
 	}

@@ -20,7 +20,7 @@ func summaryRanges(nums []int) (r []string) {
 
 	s, t := nums[0], nums[0]
 	for _, num := range nums[1:] {
-		if num == t + 1 {
+		if num == t+1 {
 			t = num
 		} else {
 			r = append(r, toString(s, t))
@@ -32,6 +32,6 @@ func summaryRanges(nums []int) (r []string) {
 }
 
 func main() {
-	r := summaryRanges([]int{0,1,2,4,5,7})
+	r := summaryRanges([]int{0, 1, 2, 4, 5, 7})
 	fmt.Println(r)
 }

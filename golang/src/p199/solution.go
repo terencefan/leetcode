@@ -9,7 +9,7 @@ func rightSideView(root *TreeNode) (r []int) {
 
 	for len(q) > 0 {
 		l := len(q)
-		r = append(r, q[len(q) - 1].Val)
+		r = append(r, q[len(q)-1].Val)
 		for i := 0; i < l; i++ {
 			if q[i].Left != nil {
 				q = append(q, q[i].Left)

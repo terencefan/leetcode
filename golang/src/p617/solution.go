@@ -1,9 +1,9 @@
 package p617
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {

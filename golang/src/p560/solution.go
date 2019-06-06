@@ -12,7 +12,7 @@ func subarraySum(nums []int, k int) int {
 	for i, num := range nums {
 		_ = i
 		p += num
-		r += hmap[p - k]
+		r += hmap[p-k]
 		hmap[p]++
 	}
 	return r

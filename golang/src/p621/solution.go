@@ -11,7 +11,7 @@ import (
 func leastInterval1(tasks []byte, n int) int {
 	var taskArr = make([]int, 26)
 	for _, task := range tasks {
-		taskArr[int(task - 'A')]++
+		taskArr[int(task-'A')]++
 	}
 	sort.Ints(taskArr)
 
@@ -21,8 +21,8 @@ func leastInterval1(tasks []byte, n int) int {
 			j := i
 			for ; j >= 0; j-- {
 				if taskArr[j] < taskArr[i] {
-					for k := 0; k < i - j && k < m; k++ {
-						taskArr[j + k + 1]--
+					for k := 0; k < i-j && k < m; k++ {
+						taskArr[j+k+1]--
 						r++
 					}
 					m -= i - j
@@ -35,11 +35,11 @@ func leastInterval1(tasks []byte, n int) int {
 	}
 
 	r, last := 0, 0
-	for taskArr[len(taskArr) - 1] > 0 {
+	for taskArr[len(taskArr)-1] > 0 {
 		r++
 		last = round()
 	}
-	return (r - 1) * (n + 1) + last
+	return (r-1)*(n+1) + last
 }
 
 func leastInterval(tasks []byte, n int) int {
@@ -70,8 +70,8 @@ func main() {
 	cases := make([]byte, 0)
 
 	ran := rand.New(rand.NewSource(time.Now().UnixNano()))
-	for i:=0;i<10000;i++ {
-		b := byte(int(math.Sqrt(float64(ran.Intn(26 * 26)))) + int('A'))
+	for i := 0; i < 10000; i++ {
+		b := byte(int(math.Sqrt(float64(ran.Intn(26*26)))) + int('A'))
 		cases = append(cases, b)
 	}
 

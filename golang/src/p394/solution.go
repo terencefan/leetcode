@@ -29,7 +29,7 @@ func decode(s string) []byte {
 		} else if c == ']' {
 			count--
 			if count == 0 {
-				part := s[first+1:i]
+				part := s[first+1 : i]
 				t := decode(part)
 				for i := 0; i < repeat; i++ {
 					r = append(r, t...)

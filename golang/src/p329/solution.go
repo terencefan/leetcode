@@ -7,7 +7,7 @@ import (
 type graph struct {
 	matrix [][]int
 	length [][]int
-	max int
+	max    int
 }
 
 func makeGraph(matrix [][]int) graph {
@@ -39,17 +39,17 @@ func (g *graph) dfs(x, y, l int) {
 	}
 
 	val := g.matrix[x][y]
-	if x > 0 && g.matrix[x - 1][y] > val {
-		g.dfs(x - 1, y, l + 1)
+	if x > 0 && g.matrix[x-1][y] > val {
+		g.dfs(x-1, y, l+1)
 	}
-	if y > 0 && g.matrix[x][y - 1] > val {
-		g.dfs(x, y - 1, l + 1)
+	if y > 0 && g.matrix[x][y-1] > val {
+		g.dfs(x, y-1, l+1)
 	}
-	if x < g.height() - 1 && g.matrix[x + 1][y] > val {
-		g.dfs(x + 1, y, l + 1)
+	if x < g.height()-1 && g.matrix[x+1][y] > val {
+		g.dfs(x+1, y, l+1)
 	}
-	if y < g.width() - 1 && g.matrix[x][y + 1] > val {
-		g.dfs(x, y + 1, l + 1)
+	if y < g.width()-1 && g.matrix[x][y+1] > val {
+		g.dfs(x, y+1, l+1)
 	}
 }
 

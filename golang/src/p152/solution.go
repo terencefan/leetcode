@@ -34,11 +34,11 @@ func maxProduct(nums []int) int {
 		if nums[i] == 0 {
 			continue
 		} else if nums[i] > 0 {
-			f[i] = max(f[i - 1] * nums[i], nums[i])
-			g[i] = min(g[i - 1] * nums[i], nums[i])
+			f[i] = max(f[i-1]*nums[i], nums[i])
+			g[i] = min(g[i-1]*nums[i], nums[i])
 		} else {
-			f[i] = max(g[i - 1] * nums[i], nums[i])
-			g[i] = min(f[i - 1] * nums[i], nums[i])
+			f[i] = max(g[i-1]*nums[i], nums[i])
+			g[i] = min(f[i-1]*nums[i], nums[i])
 		}
 	}
 

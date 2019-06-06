@@ -5,10 +5,9 @@ import (
 )
 
 type Vector2D struct {
-	v [][]int
+	v    [][]int
 	i, j int
 }
-
 
 func Constructor(v [][]int) Vector2D {
 	return Vector2D{
@@ -31,7 +30,6 @@ func (this *Vector2D) Next() (r int) {
 	this.adjust()
 	return
 }
-
 
 func (this *Vector2D) HasNext() bool {
 	if len(this.v) == 0 {

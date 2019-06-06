@@ -5,7 +5,7 @@ import (
 )
 
 func compare(a, b string) int {
-	x, y := a + b, b + a
+	x, y := a+b, b+a
 	for i := 0; i < len(x); i++ {
 		if x[i] > y[i] {
 			return 1
@@ -25,7 +25,7 @@ func quicksort(strs []string, l, r int) {
 	p, pivot := l, strs[l]
 
 	for i < j {
-		for ;i<j;j-- {
+		for ; i < j; j-- {
 			if compare(strs[j], pivot) > 0 {
 				strs[p] = strs[j]
 				p = j
@@ -33,7 +33,7 @@ func quicksort(strs []string, l, r int) {
 			}
 
 		}
-		for ;i<j;i++ {
+		for ; i < j; i++ {
 			if compare(pivot, strs[i]) > 0 {
 				strs[p] = strs[i]
 				p = i
@@ -43,8 +43,8 @@ func quicksort(strs []string, l, r int) {
 	}
 	strs[p] = pivot
 
-	quicksort(strs, l, p - 1)
-	quicksort(strs, p + 1, r)
+	quicksort(strs, l, p-1)
+	quicksort(strs, p+1, r)
 }
 
 func largestNumber(nums []int) string {
@@ -54,14 +54,14 @@ func largestNumber(nums []int) string {
 		strs[i] = strconv.Itoa(num)
 	}
 
-	quicksort(strs, 0, len(strs) - 1)
+	quicksort(strs, 0, len(strs)-1)
 
 	r := ""
 	for _, str := range strs {
 		r += str
 	}
 	i := 0
-	for ; i < len(r) - 1; i++ {
+	for ; i < len(r)-1; i++ {
 		if r[i] != '0' {
 			break
 		}

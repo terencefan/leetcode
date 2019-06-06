@@ -7,7 +7,7 @@ import (
 type Stack []int
 
 func (s *Stack) peek() int {
-	return (*s)[len(*s) - 1]
+	return (*s)[len(*s)-1]
 }
 
 func (s *Stack) push(x int) {
@@ -17,9 +17,9 @@ func (s *Stack) push(x int) {
 func (s *Stack) pop() int {
 	l := s.len()
 	defer func() {
-		*s = (*s)[:l - 1]
+		*s = (*s)[:l-1]
 	}()
-	return (*s)[l - 1]
+	return (*s)[l-1]
 }
 
 func (s *Stack) len() int {
@@ -30,13 +30,13 @@ func findLeft(nums *[]int) int {
 	l := len(*nums) - 1
 	i := 1
 	for ; i < len(*nums); i++ {
-		if (*nums)[i] < (*nums)[i - 1] {
+		if (*nums)[i] < (*nums)[i-1] {
 			l = i - 1
 			break
 		}
 	}
 
-	for ;i < len(*nums) && l >= 0; i++ {
+	for ; i < len(*nums) && l >= 0; i++ {
 		for l >= 0 && (*nums)[i] < (*nums)[l] {
 			l--
 		}
@@ -49,7 +49,7 @@ func findRight(nums *[]int) int {
 	i := len(*nums) - 2
 
 	for ; i >= 0; i-- {
-		if (*nums)[i] > (*nums)[i + 1] {
+		if (*nums)[i] > (*nums)[i+1] {
 			r = i + 1
 			break
 		}

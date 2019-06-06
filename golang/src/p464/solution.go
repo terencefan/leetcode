@@ -17,9 +17,9 @@ func dfs(max, state, total int) bool {
 
 	offset := 1
 	for i := 1; i <= max; i++ {
-		if state & offset == 0 { // number has not been chosen.
+		if state&offset == 0 { // number has not been chosen.
 			state |= offset
-			if !dfs(max, state, total - i) {
+			if !dfs(max, state, total-i) {
 				state -= offset
 				m[state] = true
 				return true
@@ -33,7 +33,7 @@ func dfs(max, state, total int) bool {
 }
 
 func canIWin(maxChoosableInteger int, desiredTotal int) bool {
-	if maxChoosableInteger * (maxChoosableInteger + 1) < desiredTotal * 2 {
+	if maxChoosableInteger*(maxChoosableInteger+1) < desiredTotal*2 {
 		return false
 	} else if desiredTotal <= maxChoosableInteger {
 		return true

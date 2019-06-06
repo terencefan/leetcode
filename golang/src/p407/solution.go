@@ -48,8 +48,8 @@ func trapRainWater(heightMap [][]int) int {
 				left[i][j] = heightMap[i][j]
 				right[i][k] = heightMap[i][k]
 			} else {
-				left[i][j] = max(heightMap[i][j], left[i][j - 1])
-				right[i][k] = max(heightMap[i][k], right[i][k + 1])
+				left[i][j] = max(heightMap[i][j], left[i][j-1])
+				right[i][k] = max(heightMap[i][k], right[i][k+1])
 			}
 		}
 	}
@@ -61,8 +61,8 @@ func trapRainWater(heightMap [][]int) int {
 				top[i][j] = heightMap[i][j]
 				down[k][j] = heightMap[k][j]
 			} else {
-				top[i][j] = max(heightMap[i][j], top[i - 1][j])
-				down[k][j] = max(heightMap[k][j], down[k + 1][j])
+				top[i][j] = max(heightMap[i][j], top[i-1][j])
+				down[k][j] = max(heightMap[k][j], down[k+1][j])
 			}
 		}
 	}
@@ -79,9 +79,9 @@ func trapRainWater(heightMap [][]int) int {
 
 func main() {
 	r := trapRainWater([][]int{
-		{1,4,3,1,3,2},
-		{3,2,1,3,2,4},
-		{2,3,3,2,3,1},
+		{1, 4, 3, 1, 3, 2},
+		{3, 2, 1, 3, 2, 4},
+		{2, 3, 3, 2, 3, 1},
 	})
 	fmt.Println(r)
 }

@@ -4,7 +4,6 @@ type TicTacToe struct {
 	board [][]int
 }
 
-
 /** Initialize your data structure here. */
 func Constructor(n int) TicTacToe {
 	board := make([][]int, n)
@@ -15,7 +14,6 @@ func Constructor(n int) TicTacToe {
 		board: board,
 	}
 }
-
 
 /** Player {player} makes a move at ({row}, {col}).
         @param row The row of the board.
@@ -32,7 +30,7 @@ func (t *TicTacToe) Move(row int, col int, player int) int {
 		c1 = c1 && t.board[row][i] == player
 		c2 = c2 && t.board[i][col] == player
 		c3 = c3 && t.board[i][i] == player
-		c4 = c4 && t.board[len(t.board) - 1][i] == player
+		c4 = c4 && t.board[len(t.board)-1][i] == player
 	}
 	if c1 || c2 || c3 || c4 {
 		return player
@@ -40,7 +38,6 @@ func (t *TicTacToe) Move(row int, col int, player int) int {
 		return 0
 	}
 }
-
 
 func main() {
 	obj := Constructor(2);

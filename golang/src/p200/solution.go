@@ -10,7 +10,7 @@ var arr = []int{1, 0, -1, 0}
 var height, width int
 
 func dfs(grid *[][]byte, p *point) {
-	stack := make([]*point, 0, height + width)
+	stack := make([]*point, 0, height+width)
 	stack = append(stack, p)
 
 	for length := 0; length >= 0; {
@@ -18,9 +18,9 @@ func dfs(grid *[][]byte, p *point) {
 		length--
 		(*grid)[cur.x][cur.y] = 0
 
-		for i:=0;i<4;i++ {
-			dx, dy := arr[i], arr[(i + 1)%4]
-			nx, ny := cur.x + dx, cur.y + dy
+		for i := 0; i < 4; i++ {
+			dx, dy := arr[i], arr[(i+1)%4]
+			nx, ny := cur.x+dx, cur.y+dy
 
 			if nx < 0 || nx >= height {
 				continue

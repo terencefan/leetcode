@@ -5,7 +5,7 @@ import (
 )
 
 func isMatch(s string, p string) bool {
-	if len(s) | len(p) == 0 {
+	if len(s)|len(p) == 0 {
 		return true
 	}
 	match := len(s) > 0 && len(p) > 0 && (s[0] == p[0] || p[0] == '.')

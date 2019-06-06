@@ -1,9 +1,9 @@
 package main
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
@@ -28,7 +28,7 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
 	}
 
 	if len(s) > 0 {
-		return s[len(s) - 1]
+		return s[len(s)-1]
 	} else {
 		return nil
 	}

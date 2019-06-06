@@ -19,7 +19,7 @@ func longestValidParentheses(s string) (r int) {
 			right++
 		}
 		if left == right {
-			r = max(r, right * 2)
+			r = max(r, right*2)
 		} else if left <= right {
 			left, right = 0, 0
 		}
@@ -33,7 +33,7 @@ func longestValidParentheses(s string) (r int) {
 			right++
 		}
 		if left == right {
-			r = max(r, right * 2)
+			r = max(r, right*2)
 		} else if left >= right {
 			left, right = 0, 0
 		}

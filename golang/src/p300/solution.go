@@ -25,7 +25,7 @@ func lengthOfLIS_1(nums []int) (r int) {
 	for i := 1; i < len(nums); i++ {
 		for j := 0; j < i; j++ {
 			if nums[i] > nums[j] {
-				f[i] = max(f[i], f[j] + 1)
+				f[i] = max(f[i], f[j]+1)
 			}
 		}
 	}
@@ -39,7 +39,7 @@ func lengthOfLIS_1(nums []int) (r int) {
 func binsearch(stack []int, x int) (r int) {
 	l, r := 0, len(stack)
 	for l < r {
-		m := l + (r - l) / 2
+		m := l + (r-l)/2
 		if stack[m] >= x {
 			r = m
 		} else {
@@ -68,6 +68,6 @@ func lengthOfLIS(nums []int) (r int) {
 }
 
 func main() {
-	r := lengthOfLIS([]int{10,9,2,5,3,7,101,18})
+	r := lengthOfLIS([]int{10, 9, 2, 5, 3, 7, 101, 18})
 	fmt.Println(r)
 }

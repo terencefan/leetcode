@@ -5,8 +5,8 @@ import (
 )
 
 type TreeNode struct {
-	val int
-	left *TreeNode
+	val   int
+	left  *TreeNode
 	right *TreeNode
 	count int
 }
@@ -81,7 +81,7 @@ func reversePairs(nums []int) int {
 		if num > currentMax {
 			currentMax = num
 		}
-		if currentMax > num * 2 {
+		if currentMax > num*2 {
 			dp += t.countMoreThan(num * 2)
 		}
 		t.Add(num)
@@ -90,6 +90,6 @@ func reversePairs(nums []int) int {
 }
 
 func main() {
-	r := reversePairs([]int{1,3,2,3,1})
+	r := reversePairs([]int{1, 3, 2, 3, 1})
 	fmt.Println(r)
 }

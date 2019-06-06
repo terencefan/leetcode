@@ -30,7 +30,7 @@ func findMissingRanges(nums []int, lower int, upper int) (r []string) {
 			continue
 		} else if num == lower {
 		} else {
-			r = append(r, str(lower, min(num - 1, upper)))
+			r = append(r, str(lower, min(num-1, upper)))
 		}
 		lower = num + 1
 	}

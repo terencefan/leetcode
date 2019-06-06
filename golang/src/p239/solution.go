@@ -6,7 +6,7 @@ import (
 
 type Deque struct {
 	l, r int
-	arr []int
+	arr  []int
 	size int
 }
 
@@ -30,11 +30,11 @@ func (q *Deque) pushFront(x int) {
 }
 
 func (q *Deque) back() int {
-	return q.arr[mod(q.r - 1, q.size)]
+	return q.arr[mod(q.r-1, q.size)]
 }
 
 func (q *Deque) front() int {
-	return q.arr[mod(q.l + 1, q.size)]
+	return q.arr[mod(q.l+1, q.size)]
 }
 
 func (q *Deque) popBack() {
@@ -65,11 +65,11 @@ func maxSlidingWindow(nums []int, k int) []int {
 		q.pushBack(i)
 	}
 
-	for i := 0; i < len(nums) - k; i++ {
+	for i := 0; i < len(nums)-k; i++ {
 		// fmt.Println(i, q.front(), nums[q.front()])
 		r = append(r, nums[q.front()])
 
-		for q.len() > 0 && nums[i + k] > nums[q.back()] {
+		for q.len() > 0 && nums[i+k] > nums[q.back()] {
 			// fmt.Println("back", q.back(), nums[q.back()])
 			q.popBack()
 		}
@@ -86,6 +86,6 @@ func maxSlidingWindow(nums []int, k int) []int {
 }
 
 func main() {
-	r := maxSlidingWindow([]int{1,3,-1,-3,5,3,6,7}, 3)
+	r := maxSlidingWindow([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3)
 	fmt.Println(r)
 }

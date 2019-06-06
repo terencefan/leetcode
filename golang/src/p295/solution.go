@@ -15,10 +15,10 @@ type IntMaxHeap struct {
 	IntHeap
 }
 
-func (h IntHeap) Len() int           { return len(h) }
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h IntHeap) Len() int      { return len(h) }
+func (h IntHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 
-func (h *IntHeap) Push(x interface{}) {*h = append(*h, x.(int))}
+func (h *IntHeap) Push(x interface{}) { *h = append(*h, x.(int)) }
 
 func (h *IntHeap) Pop() (r interface{}) {
 	var l = len(*h)
@@ -56,13 +56,13 @@ func (f *MedianFinder) AddNum(num int) {
 	pivot := f.max.peek()
 	if num < pivot {
 		heap.Push(&f.max, num)
-		if f.max.Len() - f.min.Len() > 1 {
+		if f.max.Len()-f.min.Len() > 1 {
 			heap.Push(&f.min, heap.Pop(&f.max))
 		}
 	} else {
 		heap.Push(&f.min, num)
 		if f.max.Len() < f.min.Len() {
-			heap.Push(&f. max, heap.Pop(&f.min))
+			heap.Push(&f.max, heap.Pop(&f.min))
 		}
 	}
 }
@@ -72,7 +72,7 @@ func (f *MedianFinder) FindMedian() float64 {
 		return 0.0
 	}
 	if f.max.Len() == f.min.Len() {
-		return float64((f.max.peek()) + f.min.peek()) / 2
+		return float64((f.max.peek())+f.min.peek()) / 2
 	} else {
 		return float64(f.max.peek())
 	}

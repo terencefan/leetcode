@@ -1,6 +1,5 @@
 package main
 
-
 import (
 	"fmt"
 )
@@ -14,4 +13,3 @@ func main() {
 	r := MaxSumSubmatrix(matrix, -2)
 	fmt.Println(r)
 }
-

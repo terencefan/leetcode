@@ -12,10 +12,10 @@ func searchMatrix(matrix [][]int, target int) bool {
 	}
 	m, n := len(matrix), len(matrix[0])
 
-	for i < m - 1 && matrix[i][j] < target {
+	for i < m-1 && matrix[i][j] < target {
 		i++
 	}
-	for j < n - 1 && matrix[i][j] < target {
+	for j < n-1 && matrix[i][j] < target {
 		j++
 	}
 
@@ -27,7 +27,7 @@ func searchMatrix(matrix [][]int, target int) bool {
 			i--
 			s = true
 		}
-		for j < n - 1 && matrix[i][j] < target {
+		for j < n-1 && matrix[i][j] < target {
 			j++
 			s = true
 		}

@@ -5,9 +5,9 @@ import (
 )
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func kthSmallest(root *TreeNode, k int) int {
@@ -21,8 +21,8 @@ func kthSmallest(root *TreeNode, k int) int {
 	}
 
 	for k > 1 {
-		cur = s[len(s) - 1]
-		s = s[:len(s) - 1]
+		cur = s[len(s)-1]
+		s = s[:len(s)-1]
 		if cur.Right != nil {
 			cur = cur.Right
 			for cur != nil {
@@ -34,7 +34,7 @@ func kthSmallest(root *TreeNode, k int) int {
 	}
 
 	if len(s) > 0 {
-		return s[len(s) - 1].Val
+		return s[len(s)-1].Val
 	} else {
 		return 0
 	}

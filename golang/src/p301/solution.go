@@ -14,26 +14,26 @@ type Queue struct {
 }
 
 func (q *Queue) push(node *Node) {
-	if q.r - q.l == q.cap {
+	if q.r-q.l == q.cap {
 		oldArr := q.arr
-		q.arr = make([]*Node, q.cap* 2)
+		q.arr = make([]*Node, q.cap*2)
 
 		k := 0
 		for i := q.l; i < q.r; i++ {
-			q.arr[k] = oldArr[i % q.cap]
+			q.arr[k] = oldArr[i%q.cap]
 			k++
 		}
 		q.l = 0
 		q.r = q.cap
 		q.cap *= 2
 	}
-	q.arr[q.r % q.cap] = node
+	q.arr[q.r%q.cap] = node
 	q.r++
 }
 
 func (q *Queue) pop() *Node {
-	defer func() {q.l++}()
-	return q.arr[q.l % q.cap]
+	defer func() { q.l++ }()
+	return q.arr[q.l%q.cap]
 }
 
 func (q *Queue) empty() bool {
@@ -48,9 +48,9 @@ func NewQueue() *Queue {
 }
 
 type Node struct {
-	s string
+	s    string
 	l, r int
-	l2r bool
+	l2r  bool
 }
 
 func bfs(q *Queue, r *[]string) {
@@ -79,7 +79,7 @@ func bfs(q *Queue, r *[]string) {
 				return
 			}
 		}
-		q.push(&Node{node.s, len(node.s) - 1, len(node.s) -1, false})
+		q.push(&Node{node.s, len(node.s) - 1, len(node.s) - 1, false})
 		bfs(q, r)
 	} else {
 		for i := node.l; i >= 0; i-- {

@@ -1,9 +1,9 @@
 package main
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func max(a, b int) int {
@@ -23,7 +23,7 @@ func recursive(root *TreeNode) (a, b int) {
 	a2, b2 := recursive(root.Right)
 
 	b = a1 + a2
-	a = max(root.Val + b1 + b2, b)
+	a = max(root.Val+b1+b2, b)
 	return
 }
 

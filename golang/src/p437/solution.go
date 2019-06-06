@@ -5,9 +5,9 @@ import (
 )
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func recursive1(root *TreeNode, sum int) (r int) {
@@ -16,8 +16,8 @@ func recursive1(root *TreeNode, sum int) (r int) {
 	} else if root.Val == sum {
 		r++
 	}
-	r += recursive1(root.Left, sum - root.Val)
-	r += recursive1(root.Right, sum - root.Val)
+	r += recursive1(root.Left, sum-root.Val)
+	r += recursive1(root.Right, sum-root.Val)
 	fmt.Println(root.Val, sum, r)
 	return
 }

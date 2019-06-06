@@ -13,14 +13,14 @@ func min(a, b int) int {
 }
 
 func numSquares(n int) int {
-	f := make([]int, n + 1)
+	f := make([]int, n+1)
 	s := make([]int, 0)
 
 	for i := 0; i <= n; i++ {
 		f[i] = i
 	}
 
-	for i := 1;;i++ {
+	for i := 1; ; i++ {
 		x := i * i
 		if x == n {
 			return 1
@@ -36,7 +36,7 @@ func numSquares(n int) int {
 			if k > i {
 				break
 			}
-			f[i] = min(f[i], f[i - k] + 1)
+			f[i] = min(f[i], f[i-k]+1)
 		}
 	}
 	return f[n]

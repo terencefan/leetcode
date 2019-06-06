@@ -23,8 +23,8 @@ func (h *Heap) Push(x interface{}) {
 }
 
 func (h *Heap) Pop() interface{} {
-	r := (*h)[h.Len() - 1]
-	*h = (*h)[:h.Len() - 1]
+	r := (*h)[h.Len()-1]
+	*h = (*h)[:h.Len()-1]
 	return r
 }
 

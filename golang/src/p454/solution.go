@@ -1,7 +1,7 @@
 package main
 
 func fourSumCount(A []int, B []int, C []int, D []int) int {
-	var m = make(map[int]int, len(A) * len(B))
+	var m = make(map[int]int, len(A)*len(B))
 
 	for _, a := range A {
 		for _, b := range B {

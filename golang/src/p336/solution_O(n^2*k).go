@@ -6,7 +6,7 @@ import (
 
 func charAt(s1, s2 string, x int) byte {
 	if x >= len(s1) {
-		return s2[x - len(s1)]
+		return s2[x-len(s1)]
 	} else {
 		return s1[x]
 	}
@@ -14,7 +14,7 @@ func charAt(s1, s2 string, x int) byte {
 
 func test(s1, s2 string) bool {
 	l1, l2 := len(s1), len(s2)
-	i, j := 0, l1 + l2 - 1
+	i, j := 0, l1+l2-1
 	for i < j {
 		if charAt(s1, s2, i) != charAt(s1, s2, j) {
 			return false
@@ -39,6 +39,6 @@ func palindromePairs1(words []string) [][]int {
 }
 
 func main() {
-	r := palindromePairs([]string{"abcd","dcba","lls","s","sssll"})
+	r := palindromePairs([]string{"abcd", "dcba", "lls", "s", "sssll"})
 	fmt.Println(r)
 }

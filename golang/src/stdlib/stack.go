@@ -28,7 +28,7 @@ func (s *Stack) Peek() interface{} {
 	if s.length == 0 {
 		return nil
 	}
-	return s.nodes[s.length- 1]
+	return s.nodes[s.length-1]
 }
 
 func (s *Stack) All() []interface{} {

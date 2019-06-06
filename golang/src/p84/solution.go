@@ -19,12 +19,12 @@ func (s *Stack) Len() int {
 }
 
 func (s *Stack) Peek() Node {
-	return (*s)[s.Len() - 1]
+	return (*s)[s.Len()-1]
 }
 
 func (s *Stack) Pop() (r Node) {
 	r = s.Peek()
-	*s = (*s)[:s.Len() - 1]
+	*s = (*s)[:s.Len()-1]
 	return
 }
 
@@ -45,10 +45,10 @@ func largestRectangleArea(heights []int) (r int) {
 		for s.Len() > 0 && s.Peek().height > height {
 			node := s.Pop()
 			if s.Len() > 0 {
-				r = max(r, node.height * (i - s.Peek().pos - 1))
+				r = max(r, node.height*(i-s.Peek().pos-1))
 				fmt.Println(i, r, s.Peek().pos)
 			} else {
-				r = max(r, node.height * i)
+				r = max(r, node.height*i)
 			}
 		}
 		s.Push(Node{i, height})

@@ -17,14 +17,14 @@ func min(a, b int) int {
 }
 
 func coinChange(coins []int, amount int) int {
-	f := make([]int, amount + 1)
+	f := make([]int, amount+1)
 	for i := 1; i <= amount; i++ {
 		f[i] = amount + 1
 	}
 
 	for i := 0; i < len(coins); i++ {
 		for j := coins[i]; j <= amount; j++ {
-			f[j] = min(f[j], f[j - coins[i]] + 1)
+			f[j] = min(f[j], f[j-coins[i]]+1)
 		}
 	}
 	if f[amount] > amount {
@@ -35,6 +35,6 @@ func coinChange(coins []int, amount int) int {
 }
 
 func main() {
-	r := coinChange([]int{1,2,5}, 100)
+	r := coinChange([]int{1, 2, 5}, 100)
 	fmt.Println(r)
 }

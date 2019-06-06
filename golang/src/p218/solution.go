@@ -14,14 +14,14 @@ func quicksort(arr []int, l, r int) {
 
 	i, j := l, r
 	for i < j {
-		for ;i < j; j-- {
+		for ; i < j; j-- {
 			if arr[j] < pivot {
 				arr[p] = arr[j]
 				p = j
 				break
 			}
 		}
-		for ;i < j; i++ {
+		for ; i < j; i++ {
 			if arr[i] > pivot {
 				arr[p] = arr[i]
 				p = i
@@ -31,8 +31,8 @@ func quicksort(arr []int, l, r int) {
 	}
 	arr[p] = pivot
 
-	quicksort(arr, l, p - 1)
-	quicksort(arr, p + 1, r)
+	quicksort(arr, l, p-1)
+	quicksort(arr, p+1, r)
 }
 
 type Heap [][]int
@@ -60,8 +60,8 @@ func (h *Heap) Peek() []int {
 
 func (h *Heap) Pop() interface{} {
 	l := h.Len()
-	r := (*h)[l - 1]
-	*h = (*h)[:l - 1]
+	r := (*h)[l-1]
+	*h = (*h)[:l-1]
 	return r
 }
 
@@ -72,12 +72,12 @@ func getSkyline(buildings [][]int) [][]int {
 		lines = append(lines, building[0])
 		lines = append(lines, building[1])
 	}
-	quicksort(lines, 0, len(lines) - 1)
+	quicksort(lines, 0, len(lines)-1)
 
-	buildings = append(buildings, []int{1 << 32 - 1, 1 << 32 - 1})
+	buildings = append(buildings, []int{1<<32 - 1, 1<<32 - 1})
 
 	h := make(Heap, 0)
-	h.Push([]int{0, 1 << 32 - 1, 0})
+	h.Push([]int{0, 1<<32 - 1, 0})
 
 	i, skyline := 0, [][]int{{0, 0}}
 	for _, line := range lines {
@@ -86,11 +86,11 @@ func getSkyline(buildings [][]int) [][]int {
 			i++
 		}
 
-		for h.Len() > 0 && line >= h.Peek()[1]{
+		for h.Len() > 0 && line >= h.Peek()[1] {
 			heap.Pop(&h)
 		}
 
-		if h.Peek()[2] == skyline[len(skyline) - 1][1] {
+		if h.Peek()[2] == skyline[len(skyline)-1][1] {
 			continue
 		}
 		skyline = append(skyline, []int{line, h.Peek()[2]})

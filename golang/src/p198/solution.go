@@ -24,10 +24,10 @@ func rob(nums []int) int {
 	f[1], g[1] = nums[1], nums[0]
 
 	for i := 2; i < len(nums); i++ {
-		f[i] = nums[i] + max(f[i - 2], g[i - 1])
-		g[i] = max(g[i - 1], f[i - 1])
+		f[i] = nums[i] + max(f[i-2], g[i-1])
+		g[i] = max(g[i-1], f[i-1])
 	}
-	return max(f[len(nums) - 1], g[len(nums) - 1])
+	return max(f[len(nums)-1], g[len(nums)-1])
 }
 
 func main() {

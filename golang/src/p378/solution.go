@@ -13,16 +13,16 @@ func min(a, b int) int {
 }
 
 func countLessEqualThan(arr []int, val int) int {
-	if val >= arr[len(arr) - 1] {
+	if val >= arr[len(arr)-1] {
 		return len(arr)
 	} else if val < arr[0] {
 		return 0
 	}
 
-	lo, hi := 0, len(arr) - 1
+	lo, hi := 0, len(arr)-1
 
 	for lo < hi {
-		mid := lo + (hi - lo) / 2
+		mid := lo + (hi-lo)/2
 		if arr[mid] > val {
 			hi = mid
 		} else {
@@ -38,10 +38,10 @@ func kthSmallest(matrix [][]int, k int) int {
 	}
 	m, n := len(matrix), len(matrix[0])
 
-	lo, hi := matrix[0][0], matrix[m - 1][n - 1]
+	lo, hi := matrix[0][0], matrix[m-1][n-1]
 	for lo < hi {
 
-		mid := lo + (hi - lo) / 2
+		mid := lo + (hi-lo)/2
 
 		count := 0
 		for i := 0; i < m; i++ {
@@ -61,7 +61,7 @@ func main() {
 	// fmt.Println(countLessEqualThan([]int{1,3,3,7,8}, 1))
 
 	r := kthSmallest([][]int{
-		{1,  5,  9},
+		{1, 5, 9},
 		{10, 11, 13},
 		{12, 13, 15},
 	}, 2)

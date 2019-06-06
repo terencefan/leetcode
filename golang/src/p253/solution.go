@@ -31,14 +31,14 @@ func sort(intervals [][]int, l, r int) {
 
 	i, j := l, r
 	for i < j {
-		for ;j>i;j-- {
+		for ; j > i; j-- {
 			if compare(intervals[j], pivot) < 0 {
 				intervals[p] = intervals[j]
 				p = j
 				break
 			}
 		}
-		for ;i<j;i++ {
+		for ; i < j; i++ {
 			if compare(intervals[i], pivot) > 0 {
 				intervals[p] = intervals[i]
 				p = i
@@ -48,8 +48,8 @@ func sort(intervals [][]int, l, r int) {
 	}
 	intervals[p] = pivot
 
-	sort(intervals, l, p - 1)
-	sort(intervals, p + 1, r)
+	sort(intervals, l, p-1)
+	sort(intervals, p+1, r)
 }
 
 type endtime struct {
@@ -73,8 +73,8 @@ func (e *endtime) Peek() int {
 }
 
 func (e *endtime) Pop() (r interface{}) {
-	r = e.arr[len(e.arr) - 1]
-	e.arr = e.arr[:len(e.arr) - 1]
+	r = e.arr[len(e.arr)-1]
+	e.arr = e.arr[:len(e.arr)-1]
 	return
 }
 
@@ -83,7 +83,7 @@ func (e *endtime) Len() int {
 }
 
 func minMeetingRooms(intervals [][]int) int {
-	sort(intervals, 0, len(intervals) - 1)
+	sort(intervals, 0, len(intervals)-1)
 
 	h, r := &endtime{}, 0
 	for _, interval := range intervals {

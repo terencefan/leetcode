@@ -14,14 +14,14 @@ func quickselect(nums []int, l, r, k int) {
 	p, pivot := l, nums[l]
 
 	for i < j {
-		for ;i < j;j-- {
+		for ; i < j; j-- {
 			if nums[j] < pivot {
 				nums[p] = nums[j]
 				p = j
 				break
 			}
 		}
-		for ;i < j;i++ {
+		for ; i < j; i++ {
 			if nums[i] > pivot {
 				nums[p] = nums[i]
 				p = i
@@ -35,24 +35,24 @@ func quickselect(nums []int, l, r, k int) {
 	if delta == k {
 		return
 	} else if delta > k {
-		quickselect(nums, l, p - 1, k)
+		quickselect(nums, l, p-1, k)
 	} else {
-		quickselect(nums, p + 1, r, k - delta - 1)
+		quickselect(nums, p+1, r, k-delta-1)
 	}
 }
 
-func wiggleSort(nums []int)  {
-	quickselect(nums, 0, len(nums) - 1, len(nums) / 2)
+func wiggleSort(nums []int) {
+	quickselect(nums, 0, len(nums)-1, len(nums)/2)
 
 	n := len(nums)
-	mid := nums[n / 2]
+	mid := nums[n/2]
 
 	next := func(x int) int {
-		r := (2 * x + 1) % (n | 1)
+		r := (2*x + 1) % (n | 1)
 		return r
 	}
 
-	i, l, r := 0, 0, n - 1
+	i, l, r := 0, 0, n-1
 
 	for i <= r {
 		p := next(i)
@@ -77,5 +77,5 @@ func wiggleSort(nums []int)  {
 }
 
 func main() {
-	wiggleSort([]int{2,1,1,2,1,3,3,3,1,3,1,3,2})
+	wiggleSort([]int{2, 1, 1, 2, 1, 3, 3, 3, 1, 3, 1, 3, 2})
 }

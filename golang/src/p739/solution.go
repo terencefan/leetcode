@@ -5,7 +5,7 @@ import (
 )
 
 func pack(pos, t int) int {
-	return t << 16 + pos
+	return t<<16 + pos
 }
 
 func unpack(v int) (pos, t int) {
@@ -19,11 +19,11 @@ func dailyTemperatures(T []int) []int {
 	r := make([]int, length)
 
 	stack := make([]int, 0, 16)
-	for i := length - 1; i >=0 ; i-- {
+	for i := length - 1; i >= 0; i-- {
 		for len(stack) > 0 {
-			pos, t := unpack(stack[len(stack) - 1])
+			pos, t := unpack(stack[len(stack)-1])
 			if t < T[i] {
-				stack = stack[:len(stack) - 1]
+				stack = stack[:len(stack)-1]
 			} else {
 				r[i] = pos - i
 				break
@@ -36,6 +36,6 @@ func dailyTemperatures(T []int) []int {
 }
 
 func main() {
-	r := dailyTemperatures([]int{73,74,75,71,69,72,76,73})
+	r := dailyTemperatures([]int{73, 74, 75, 71, 69, 72, 76, 73})
 	fmt.Println(r)
 }

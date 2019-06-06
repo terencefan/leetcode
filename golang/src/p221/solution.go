@@ -27,9 +27,9 @@ func (m *Matrix) get(i, j int) int {
 }
 
 func (m *Matrix) update(i, j int) int {
-	x := m.get(i - 1, j - 1)
-	x = min(x, m.get(i, j - 1))
-	x = min(x, m.get(i - 1, j))
+	x := m.get(i-1, j-1)
+	x = min(x, m.get(i, j-1))
+	x = min(x, m.get(i-1, j))
 	if (*m)[i][j] != 0 {
 		(*m)[i][j] = byte(x + 1)
 		return x + 1

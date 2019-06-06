@@ -18,10 +18,10 @@ func jump(nums []int) int {
 	}
 
 	currentMin, currentMax, steps := 0, 0, 0
-	for currentMax < len(nums) - 1 {
+	for currentMax < len(nums)-1 {
 		temp := currentMax
 		for i := currentMin; i <= temp && i < len(nums); i++ {
-			currentMax = max(currentMax, i + nums[i])
+			currentMax = max(currentMax, i+nums[i])
 		}
 		currentMin = temp + 1
 		steps++
@@ -30,6 +30,6 @@ func jump(nums []int) int {
 }
 
 func main() {
-	r := jump([]int{2,3,1,1,4})
+	r := jump([]int{2, 3, 1, 1, 4})
 	fmt.Println(r)
 }
