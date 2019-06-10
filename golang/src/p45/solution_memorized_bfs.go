@@ -12,7 +12,7 @@ func minp(a, b int) int {
 	}
 }
 
-func jump_memorized_bfs(nums []int) int {
+func jump(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
@@ -22,7 +22,6 @@ func jump_memorized_bfs(nums []int) int {
 	steps := 0
 	for len(q) > 0 {
 		length := len(q)
-		m := make(map[int]bool)
 
 		for i := 0; i < length; i++ {
 			pos := q[i]
@@ -34,15 +33,11 @@ func jump_memorized_bfs(nums []int) int {
 					continue
 				} else {
 					dp[pos+k] = steps + 1
-					m[pos+k] = true
+					q = append(q, pos+k)
 				}
 			}
 		}
-
 		q = q[length:]
-		for pos := range m {
-			q = append(q, pos)
-		}
 		steps++
 	}
 	return 0

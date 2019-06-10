@@ -4,92 +4,65 @@ import (
 	"fmt"
 )
 
-type TreeNode struct {
-	val   int
-	left  *TreeNode
-	right *TreeNode
-	count int
-}
-
-func NewTreeNode(val int) *TreeNode {
-	return &TreeNode{val, nil, nil, 1}
-}
-
-type BST struct {
-	root *TreeNode
-}
-
-func (t *BST) Add(x int) {
-	if t.root == nil {
-		t.root = NewTreeNode(x)
-		return
-	}
-	var node = t.root
-	for {
-		node.count++
-		if x < node.val {
-			if node.left == nil {
-				node.left = NewTreeNode(x)
-				break
-			} else {
-				node = node.left
-			}
-		} else {
-			if node.right == nil {
-				node.right = NewTreeNode(x)
-				break
-			} else {
-				node = node.right
-			}
-		}
-	}
-}
-
-func (t *BST) countMoreThan(x int) (r int) {
-	if t.root == nil {
+func mergeSort(nums []int, lo, hi int) int {
+	if lo == hi {
 		return 0
 	}
 
-	node := t.root
-	for node != nil {
-		if x >= node.val {
-			node = node.right
-		} else {
-			r += 1
-			if node.right != nil {
-				r += node.right.count
-			}
-			node = node.left
-		}
-	}
-	return
-}
+	mid := lo + (hi-lo)/2
 
-func NewTree() *BST {
-	return &BST{}
+	c := 0
+	c += mergeSort(nums, lo, mid)
+	c += mergeSort(nums, mid+1, hi)
+
+	i, j := lo, mid+1
+	for i <= mid {
+		for j <= hi && nums[i] > 2*nums[j] {
+			j++
+		}
+		c += j - mid - 1
+		i++
+	}
+
+	temp := make([]int, hi-lo+1)
+	i, j, k := lo, mid+1, 0
+	for i <= mid && j <= hi {
+		if nums[i] <= nums[j] {
+			temp[k] = nums[i]
+			i++
+		} else {
+			temp[k] = nums[j]
+			j++
+		}
+		k++
+	}
+	for ; i <= mid; i++ {
+		temp[k] = nums[i]
+		k++
+	}
+	for ; j <= hi; j++ {
+		temp[k] = nums[j]
+		k++
+	}
+
+	i, k = lo, 0
+	for ; i <= hi; i++ {
+		nums[i] = temp[k]
+		k++
+	}
+
+	return c
 }
 
 func reversePairs(nums []int) int {
-	if len(nums) < 2 {
+	if len(nums) == 0 {
 		return 0
 	}
-
-	currentMax := -1
-
-	dp, t := 0, NewTree()
-	for _, num := range nums {
-		if num > currentMax {
-			currentMax = num
-		}
-		if currentMax > num*2 {
-			dp += t.countMoreThan(num * 2)
-		}
-		t.Add(num)
-	}
-	return dp
+	return mergeSort(nums, 0, len(nums)-1)
 }
 
 func main() {
-	r := reversePairs([]int{1, 3, 2, 3, 1})
+	// r := reversePairs([]int{2,4,3,5,1})
+	r := reversePairs([]int{2147483647, 2147483647, -2147483647, -2147483647, -2147483647, 2147483647})
 	fmt.Println(r)
 }

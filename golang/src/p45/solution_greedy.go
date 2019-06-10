@@ -1,35 +1,23 @@
 package main
 
-import (
-	"fmt"
-)
+func jump_greedy(nums []int) int {
+	steps, end := 0, len(nums)-1
+	current, currentMax := 0, 0
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	} else {
-		return b
-	}
-}
-
-func jump(nums []int) int {
-	if len(nums) <= 1 {
-		return 0
-	}
-
-	currentMin, currentMax, steps := 0, 0, 0
-	for currentMax < len(nums)-1 {
-		temp := currentMax
-		for i := currentMin; i <= temp && i < len(nums); i++ {
-			currentMax = max(currentMax, i+nums[i])
-		}
-		currentMin = temp + 1
+	for current < end {
 		steps++
+
+		lo, hi := current+1, current+nums[current]
+		if hi >= end {
+			return steps
+		}
+
+		for next := hi; next >= lo; next-- {
+			if next+nums[next] > currentMax {
+				currentMax = next + nums[next]
+				current = next
+			}
+		}
 	}
 	return steps
-}
-
-func main() {
-	r := jump([]int{2, 3, 1, 1, 4})
-	fmt.Println(r)
 }
