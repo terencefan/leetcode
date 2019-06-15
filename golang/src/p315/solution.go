@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 type BSTNode struct {
 	val         int
 	leftsum     int
@@ -55,9 +51,4 @@ func countSmaller(nums []int) []int {
 	}
 
 	return r
-}
-
-func main() {
-	r := countSmaller([]int{5, 9, 6, 9, 1})
-	fmt.Println(r)
 }
