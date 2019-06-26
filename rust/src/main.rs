@@ -1,11 +1,5 @@
-use ferris_says::say; // from the previous step
-use std::io::{stdout, BufWriter};
+mod p414;
 
 fn main() {
-    let stdout = stdout();
-    let out = b"Hello fellow Rustaceans!";
-    let width = 24;
-
-    let mut writer = BufWriter::new(stdout.lock());
-    say(out, width, &mut writer).unwrap();
+    p414::run();
 }
