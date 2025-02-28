@@ -1,8 +1,8 @@
 package main
 
-import "terencefan.com/leetcode/src/leetcode"
+import "terencefan.com/leetcode/src/utils"
 
-type TreeNode leetcode.TreeNode
+type TreeNode utils.TreeNode
 
 func recursive(node *TreeNode, level int, r *[]int) {
 	if node == nil {

@@ -1,8 +1,8 @@
 package main
 
-import "terencefan.com/leetcode/src/leetcode"
+import "terencefan.com/leetcode/src/utils"
 
-type TreeNode leetcode.TreeNode
+type TreeNode utils.TreeNode
 
 func searchBST(root *TreeNode, val int) *TreeNode {
 	if root == nil {

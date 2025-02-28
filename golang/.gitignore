@@ -1,2 +1,45 @@
-pkg
-main
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Output of the go coverage tool
+*.out
+
+# Temporary files
+*.tmp
+
+# Build directories
+bin/
+pkg/
+out/
+
+# Dependency directories (remove the comment if you use Go modules)
+# /vendor/
+
+# Go workspace file
+go.work
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Go test binary
+*.test
+
+# Go coverage tool
+*.coverprofile
+*.cover.out
+
+# Go module files
+go.sum
