@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func findClosestElements_1(arr []int, k int, x int) []int {
 	if k >= len(arr) {
 		return arr
@@ -37,9 +33,4 @@ func findClosestElements_1(arr []int, k int, x int) []int {
 		k--
 	}
 	return arr[p+1 : q]
-}
-
-func main() {
-	r := findClosestElements([]int{1}, 1, 1)
-	fmt.Println(r)
 }

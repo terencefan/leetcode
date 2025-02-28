@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 var m [][]int
 
 func isMatch1(s string, p string) bool {
@@ -60,17 +56,4 @@ func match(s, p string, i, j int) bool {
 	} else {
 		return match(s, p, i+1, j+1)
 	}
-}
-
-func main() {
-	r := isMatch(
-		"abbabaaabbabbaababbabbbbbabbbabbbabaaaaababababbbabababaabbababaabbbbbbaaaabababbbaabbbbaabbbbababababbaabbaababaabbbababababbbbaaabbbbbabaaaabbababbbbaababaabbababbbbbababbbabaaaaaaaabbbbbaabaaababaaaabb",
-		"**aa*****ba*a*bb**aa*ab****a*aaaaaa***a*aaaa**bbabb*b*b**aaaaaaaaa*a********ba*bbb***a*ba*bb*bb**a*b*bb",
-	)
-	fmt.Println(r)
-
-	// fmt.Println(isMatch("mississippi", "m??*ss*?i*pi"))
-
-	// fmt.Println(isMatch("acdcb", "a*d?b"))
-	// fmt.Println(isMatch("aaaa", "***a"))
 }

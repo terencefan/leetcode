@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func letterCasePermutation(S string) []string {
 
 	isLower := func(b byte) bool {
@@ -22,8 +18,4 @@ func letterCasePermutation(S string) []string {
 	}
 
 	return r
-}
-
-func main() {
-	fmt.Println(letterCasePermutation("a1C2"))
 }

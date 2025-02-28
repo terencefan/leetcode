@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func mergeSort(nums []int, lo, hi int) int {
 	if lo == hi {
 		return 0
@@ -59,10 +55,4 @@ func reversePairs(nums []int) int {
 		return 0
 	}
 	return mergeSort(nums, 0, len(nums)-1)
-}
-
-func main() {
-	// r := reversePairs([]int{2,4,3,5,1})
-	r := reversePairs([]int{2147483647, 2147483647, -2147483647, -2147483647, -2147483647, 2147483647})
-	fmt.Println(r)
 }

@@ -1,7 +1,7 @@
-package leetcode
+package utils
 
 type Queue struct {
-	nodes []interface{}
+	nodes []any
 	len   int
 	head  int
 }
@@ -11,7 +11,7 @@ func queue() (q *Queue) {
 	return
 }
 
-func (q *Queue) push(node interface{}) {
+func (q *Queue) push(node any) {
 	if len(q.nodes) == cap(q.nodes) {
 		defer func() {
 			copy(q.nodes, q.nodes[q.head:])
@@ -23,7 +23,7 @@ func (q *Queue) push(node interface{}) {
 	q.len++
 }
 
-func (q *Queue) pop() interface{} {
+func (q *Queue) pop() any {
 	if q.len == 0 {
 		return nil
 	}

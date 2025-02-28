@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func jump_bfs(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -37,9 +33,4 @@ func jump_bfs(nums []int) int {
 		steps++
 	}
 	return 0
-}
-
-func main() {
-	r := jump_bfs([]int{2, 3, 1, 1, 4})
-	fmt.Println(r)
 }

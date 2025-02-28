@@ -1,6 +1,6 @@
 package main
 
-import "leetcode"
+import "terencefan.com/leetcode/src/leetcode"
 
 type TreeNode leetcode.TreeNode
 

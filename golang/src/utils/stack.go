@@ -1,4 +1,4 @@
-package leetcode
+package utils
 
 type Stack struct {
 	nodes  []interface{}

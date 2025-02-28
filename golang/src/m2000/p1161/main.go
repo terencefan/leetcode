@@ -1,10 +1,8 @@
 package main
 
-import (
-	"leetcode"
-)
+import "terencefan.com/leetcode/src/utils"
 
-type TreeNode leetcode.TreeNode
+type TreeNode utils.TreeNode
 
 func dfs(node *TreeNode, level int, levelSum *[]int) {
 	if node == nil {
