@@ -11,10 +11,5 @@ package p2542
 // Therefore, we return the max score, which is 12.
 
 func maxScore(nums1 []int, nums2 []int, k int) int64 {
-	n := len(nums1)
-
-	var dp = make([][]int64, k)
-	for i := range dp {
-		dp[i] = make([]int64, n)
-	}
+	return 0
 }
