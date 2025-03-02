@@ -16,4 +16,5 @@ func pivotIndex(nums []int) int {
 		left += num
 	}
 
+	return 0
 }
