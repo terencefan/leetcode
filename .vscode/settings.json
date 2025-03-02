@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "nums"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "java.format.settings.url": "eclipse-formatter.xml"
 }
