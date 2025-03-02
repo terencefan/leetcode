@@ -2,9 +2,9 @@ package p430;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 
 class Solution {
+
     public Node flatten(Node head) {
         if (head == null) {
             return null;
@@ -16,7 +16,7 @@ class Solution {
         Node dummy = new Node();
         Node pre = dummy;
 
-        while (stack.size() > 0) {
+        while (!stack.isEmpty()) {
             Node node = stack.pop();
 
             node.prev = pre;

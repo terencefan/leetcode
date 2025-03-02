@@ -11,7 +11,7 @@ func test(grid [][]int, x, y int) bool {
 	return true
 }
 
-func equalPairs(grid [][]int) int {
+func equalPairsHash(grid [][]int) int {
 	n := len(grid)
 	xHash := make([]int, n)
 	yHash := make([]int, n)
