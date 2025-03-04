@@ -1,18 +1,42 @@
-package main
+package p530
 
-import (
-	"fmt"
-)
+import "terencefan.com/leetcode/src/utils"
 
-func main() {
-	var n1 = MakeTreeNode(1)
-	var n2 = MakeTreeNode(2)
-	n2.Left = n1
-	var n3 = MakeTreeNode(4)
-	var n4 = MakeTreeNode(3)
-	n4.Left = n2
-	n4.Right = n3
+type TreeNode = utils.TreeNode
 
-	r := GetMinimumDifference(n4)
-	fmt.Println(r)
+const INTMAX = 1 << 31
+
+func min(a, b int) int {
+	if a > b {
+		return b
+	}
+	return a
+}
+
+func preorderTraverse(node *TreeNode, ch chan<- *TreeNode) {
+	if node == nil {
+		return
+	}
+	preorderTraverse(node.Left, ch)
+	ch <- node
+	preorderTraverse(node.Right, ch)
+}
+
+func getMinimumDifference(root *TreeNode) int {
+	var ch = make(chan *TreeNode, 0)
+
+	go func() {
+		preorderTraverse(root, ch)
+		close(ch)
+	}()
+
+	var r = INTMAX
+	prev := (*TreeNode)(nil)
+	for node := range ch {
+		if prev != nil {
+			r = min(r, node.Val-prev.Val)
+		}
+		prev = node
+	}
+	return r
 }

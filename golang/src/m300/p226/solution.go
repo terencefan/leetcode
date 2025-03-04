@@ -1,17 +1,13 @@
-package main
+package p226
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import "terencefan.com/leetcode/src/utils"
+
+type TreeNode = utils.TreeNode
 
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
-	t := invertTree(root.Right)
-	root.Right = invertTree(root.Left)
-	root.Left = t
+	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
 	return root
 }

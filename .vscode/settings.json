@@ -4,5 +4,8 @@
     ],
     "java.configuration.updateBuildConfiguration": "automatic",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "java.format.settings.url": "eclipse-formatter.xml"
+    "java.format.settings.url": "eclipse-formatter.xml",
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    }
 }
