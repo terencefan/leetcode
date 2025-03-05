@@ -1,5 +1,9 @@
 package main
 
+import "terencefan.com/leetcode/src/utils"
+
+type TreeNode = utils.TreeNode
+
 var r int
 
 func max(a, b int) int {

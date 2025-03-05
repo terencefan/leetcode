@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
-        "nums"
+        "heapify",
+        "leetcode",
+        "nums",
+        "terencefan"
     ],
     "java.configuration.updateBuildConfiguration": "automatic",
     "editor.defaultFormatter": "esbenp.prettier-vscode",

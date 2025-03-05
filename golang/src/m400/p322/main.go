@@ -11,7 +11,7 @@ func min(a, b int) int {
 
 const INTMAX = 1 << 31
 
-func coinChange(coins []int, amount int) int {
+func coinChange2(coins []int, amount int) int {
 	if amount == 0 {
 		return 0
 	}
@@ -20,7 +20,7 @@ func coinChange(coins []int, amount int) int {
 		return coins[i] > coins[j]
 	})
 
-	var dp = make([]int, amount + 1)
+	var dp = make([]int, amount+1)
 	for i := range amount + 1 {
 		dp[i] = INTMAX
 	}
@@ -28,7 +28,7 @@ func coinChange(coins []int, amount int) int {
 	for _, coin := range coins {
 		for i := 0; i <= amount; i++ {
 			if i >= coin {
-				dp[i] = min(dp[i], dp[i - coin] + 1)
+				dp[i] = min(dp[i], dp[i-coin]+1)
 			}
 		}
 	}

@@ -1,15 +1,15 @@
-package main
+package p242
 
 func isAnagram(s string, t string) bool {
-	var arr = make([]int, 26)
+	var r = make([]int, 26)
 	for _, c := range s {
-		arr[c-'a']++
+		r[c-'a']++
 	}
 	for _, c := range t {
-		arr[c-'a']--
+		r[c-'a']--
 	}
-	for _, x := range arr {
-		if x != 0 {
+	for _, v := range r {
+		if v != 0 {
 			return false
 		}
 	}

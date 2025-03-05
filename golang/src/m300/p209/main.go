@@ -23,4 +23,5 @@ func minSubArrayLen(target int, nums []int) int {
 			i++
 		}
 	}
+	return 0
 }

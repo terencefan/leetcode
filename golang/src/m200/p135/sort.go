@@ -14,7 +14,7 @@ func max(a, b int) int {
 	return b
 }
 
-func candy(ratings []int) int {
+func candy2(ratings []int) int {
 	if len(ratings) == 0 {
 		return 0
 	} else if len(ratings) == 1 {
