@@ -1,14 +1,4 @@
-package main
-
-func min(a, b int) int {
-	if a == 0 {
-		return b
-	} else if a < b {
-		return a
-	} else {
-		return b
-	}
-}
+package p45
 
 func jump_dp(nums []int) int {
 	dp := make([]int, len(nums))

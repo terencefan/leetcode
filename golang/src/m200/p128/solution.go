@@ -1,54 +1,28 @@
-package main
+package p128
 
-import (
-	"fmt"
-)
-
-type node struct {
-	size int
-}
-
-func longestConsecutive(nums []int) (r int) {
-	if len(nums) == 0 {
-		return 0
-	}
-
-	m := make(map[int]int)
-	for _, num := range nums {
-		m[num] = 1
-	}
+func longestConsecutive(nums []int) int {
+	var m = make(map[int]bool)
 
 	for _, num := range nums {
-		p, q, k := num, 0, 1
-		for {
-			if v, ok := m[p]; !ok {
-				break
-			} else {
-				p += v
-				k += v
-			}
-		}
-		k--
-
-		p, q = num, k
-		for q > 1 {
-			if v, ok := m[p]; ok {
-				fmt.Println(p, q)
-				m[p] = q
-				p += v
-				q -= v
-			}
-		}
-
-		if k > r {
-			r = k
-		}
+		m[num] = true
 	}
 
+	var r = 0
+	for len(m) > 0 {
+		var num, i, j int
+		for num, _ = range m {
+			break
+		}
+		delete(m, num)
+		for i = num + 1; m[i]; i++ {
+			delete(m, i)
+		}
+		for j = num - 1; m[j]; j-- {
+			delete(m, j)
+		}
+		if i-j-1 > r {
+			r = i - j - 1
+		}
+	}
 	return r
-}
-
-func main() {
-	r := longestConsecutive([]int{100, 4, 200, 1, 3, 2})
-	fmt.Println(r)
 }

@@ -1,72 +1,49 @@
-package main
+package p380
 
 import (
-	"fmt"
 	"math/rand"
+	"time"
 )
 
 type RandomizedSet struct {
-	set map[int]int
-	arr []int
+	indexVal []int
+	valIndex map[int]int
+	r        rand.Source
 }
 
-/** Initialize your data structure here. */
 func Constructor() RandomizedSet {
 	return RandomizedSet{
-		set: make(map[int]int),
-		arr: make([]int, 0),
+		indexVal: make([]int, 0),
+		valIndex: make(map[int]int),
+		r:        rand.NewSource(time.Now().UnixNano()),
 	}
 }
 
-/** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
 func (this *RandomizedSet) Insert(val int) bool {
-	if _, ok := this.set[val]; !ok {
-		this.set[val] = len(this.arr)
-		this.arr = append(this.arr, val)
-		return true
-	} else {
+	if _, ok := this.valIndex[val]; ok {
 		return false
+	} else {
+		this.valIndex[val] = len(this.indexVal)
+		this.indexVal = append(this.indexVal, val)
 	}
+	return true
 }
 
-/** Removes a value from the set. Returns true if the set contained the specified element. */
 func (this *RandomizedSet) Remove(val int) bool {
-	if _, ok := this.set[val]; !ok {
-		return false
-	} else {
-		p := this.set[val]
-		delete(this.set, val)
-
-		end := len(this.arr) - 1
-		if p != end {
-			this.set[this.arr[end]] = p
-			this.arr[p] = this.arr[end]
-		}
-		this.arr = this.arr[:end]
+	if idx, ok := this.valIndex[val]; ok {
+		last := len(this.indexVal) - 1
+		lastVal := this.indexVal[last]
+		this.indexVal[idx], this.indexVal[last] = this.indexVal[last], this.indexVal[idx]
+		this.indexVal = this.indexVal[:last]
+		this.valIndex[lastVal] = idx
+		delete(this.valIndex, val)
 		return true
-	}
-}
-
-/** Get a random element from the set. */
-func (this *RandomizedSet) GetRandom() int {
-	// seed := rand.NewSource(time.Now().UnixNano())
-	// r := rand.New(seed)
-
-	if len(this.arr) > 0 {
-		return this.arr[rand.Intn(len(this.arr))]
 	} else {
-		return 0
+		return false
 	}
 }
 
-func main() {
-	obj := Constructor()
-	fmt.Println(obj.Insert(0))
-	fmt.Println(obj.Remove(0))
-	fmt.Println(obj.Insert(-1))
-	fmt.Println(obj.Remove(0))
-	fmt.Println(obj.GetRandom())
-	fmt.Println(obj.GetRandom())
-	fmt.Println(obj.GetRandom())
-	fmt.Println(obj.GetRandom())
+func (this *RandomizedSet) GetRandom() int {
+	idx := this.r.Int63() % int64(len(this.indexVal))
+	return this.indexVal[idx]
 }

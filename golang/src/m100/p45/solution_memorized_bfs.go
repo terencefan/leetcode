@@ -1,18 +1,8 @@
-package main
+package p45
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func minp(a, b int) int {
-	if a > b {
-		return b
-	} else {
-		return a
-	}
-}
-
-func jump(nums []int) int {
+func jump_memorized_bfs(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
@@ -26,7 +16,7 @@ func jump(nums []int) int {
 		for i := 0; i < length; i++ {
 			pos := q[i]
 
-			for k := minp(nums[pos], len(nums)-pos-1); k >= 1; k-- {
+			for k := min(nums[pos], len(nums)-pos-1); k >= 1; k-- {
 				if pos+k == len(nums)-1 {
 					return steps + 1
 				} else if dp[pos+k] > 0 && dp[pos+k] <= steps+1 {

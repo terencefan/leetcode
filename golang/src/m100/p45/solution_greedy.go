@@ -1,4 +1,4 @@
-package main
+package p45
 
 func jump_greedy(nums []int) int {
 	steps, end := 0, len(nums)-1
