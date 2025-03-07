@@ -12,6 +12,19 @@ type ListNode struct {
 }
 
 type Node struct {
-	Val int
+	Val       int
 	Neighbors []*Node
+}
+
+type TreeNodeNext struct {
+	Val   int
+	Left  *TreeNodeNext
+	Right *TreeNodeNext
+	Next  *TreeNodeNext
+}
+
+type RandomNode struct {
+	Val    int
+	Next   *RandomNode
+	Random *RandomNode
 }

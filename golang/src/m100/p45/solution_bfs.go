@@ -1,4 +1,4 @@
-package main
+package p45
 
 func jump_bfs(nums []int) int {
 	if len(nums) == 0 {

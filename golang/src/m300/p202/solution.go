@@ -1,31 +1,25 @@
-package main
+package p202
 
-import (
-	"fmt"
-)
-
-func isHappy(n int) bool {
-	visited := make(map[int]bool)
-
+func convert(n int) int {
+	r := 0
 	for n > 0 {
-		r, m := 0, n
-		for m > 0 {
-			r += (m % 10) * (m % 10)
-			m = m / 10
-		}
-		if visited[r] {
-			return false
-		} else if r == 1 {
-			return true
-		} else {
-			visited[r] = true
-			n = r
-		}
+		r += (n % 10) * (n % 10)
+		n /= 10
 	}
-	return false
+	return r
 }
 
-func main() {
-	r := isHappy(19)
-	fmt.Println(r)
+func isHappy(n int) bool {
+	m := make(map[int]bool)
+	m[n] = true
+
+	for {
+		n = convert(n)
+		if n == 1 {
+			return true
+		} else if m[n] {
+			return false
+		}
+		m[n] = true
+	}
 }

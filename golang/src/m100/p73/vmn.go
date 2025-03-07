@@ -1,6 +1,6 @@
 package p73
 
-func setZeroes(matrix [][]int) {
+func setZeroes1(matrix [][]int) {
 	if len(matrix) == 0 {
 		return
 	}

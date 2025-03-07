@@ -17,7 +17,7 @@ func iterate(result *[]string, bytes *[]byte, left, right, length int) {
 	}
 }
 
-func generateParenthesis(n int) []string {
+func generateParenthesis2(n int) []string {
 	var res = make([]string, 0)
 	var bytes = make([]byte, 0)
 	iterate(&res, &bytes, 0, 0, 2*n)
