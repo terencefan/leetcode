@@ -1,6 +1,6 @@
 package p274
 
-func hIndex(citations []int) int {
+func hIndex1(citations []int) int {
 
 	l, r := 0, len(citations)+1
 
