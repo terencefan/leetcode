@@ -1,14 +1,12 @@
-package main
+package p172
 
 func trailingZeroes(n int) int {
-	if n < 5 {
-		return 0
-	}
+	x := 5
 
-	r, i := 0, 5
-	for i < n {
-		r += n / i
-		i *= 5
+	var r = 0
+	for n >= x {
+		r += n / x
+		x *= 5
 	}
 	return r
 }

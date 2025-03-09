@@ -28,3 +28,12 @@ type RandomNode struct {
 	Next   *RandomNode
 	Random *RandomNode
 }
+
+type QuadTreeNode struct {
+	Val         bool
+	IsLeaf      bool
+	TopLeft     *Node
+	TopRight    *Node
+	BottomLeft  *Node
+	BottomRight *Node
+}
