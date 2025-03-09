@@ -32,7 +32,7 @@ func maxSubarraySumCircular(nums []int) int {
 			dpmax[0] = num
 		} else {
 			dpmin[i] = min(dpmin[i-1]+num, num)
-			dpmax[i] = max(dpmin[i-1]+num, num)
+			dpmax[i] = max(dpmax[i-1]+num, num)
 		}
 	}
 

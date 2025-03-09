@@ -10,4 +10,8 @@ func plusOne(digits []int) []int {
 		digits[k] = digits[k] % 10
 		k--
 	}
+	if one {
+		digits = append([]int{1}, digits...)
+	}
+	return digits
 }
