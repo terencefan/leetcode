@@ -1,60 +1,34 @@
-package main
+package p173
+
+import "terencefan.com/leetcode/src/utils"
+
+type TreeNode = utils.TreeNode
 
 type BSTIterator struct {
-	stack Stack
-}
-
-type Stack []*TreeNode
-
-func (s *Stack) len() int {
-	return len(*s)
-}
-
-func (s *Stack) peek() *TreeNode {
-	return (*s)[s.len()-1]
-}
-
-func (s *Stack) pop() (node *TreeNode) {
-	node = s.peek()
-	*s = (*s)[:s.len()-1]
-	return
-}
-
-func (s *Stack) push(node *TreeNode) {
-	*s = append(*s, node)
+	stack []*TreeNode
 }
 
 func Constructor(root *TreeNode) BSTIterator {
-	var stack = make(Stack, 0)
+	var r = &BSTIterator{stack: []*TreeNode{}}
+	r.push(root)
+	return *r
+}
 
-	node := root
+func (this *BSTIterator) push(node *TreeNode) {
 	for node != nil {
-		stack.push(node)
+		this.stack = append(this.stack, node)
 		node = node.Left
 	}
-
-	return BSTIterator{stack}
 }
 
-/** @return the next smallest number */
-func (it *BSTIterator) Next() (r int) {
-	node := it.stack.pop()
-	r = node.Val
-	if node.Right != nil {
-		node = node.Right
-		for node != nil {
-			it.stack.push(node)
-			node = node.Left
-		}
-	}
-	return r
+func (this *BSTIterator) Next() int {
+	node := this.stack[len(this.stack)-1]
+	this.stack = this.stack[:len(this.stack)-1]
+	this.push(node.Right)
+	return node.Val
+
 }
 
-/** @return whether we have a next smallest number */
-func (it *BSTIterator) HasNext() bool {
-	return len(it.stack) > 0
-}
-
-func main() {
-
+func (this *BSTIterator) HasNext() bool {
+	return len(this.stack) > 0
 }

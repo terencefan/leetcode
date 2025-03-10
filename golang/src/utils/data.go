@@ -32,8 +32,8 @@ type RandomNode struct {
 type QuadTreeNode struct {
 	Val         bool
 	IsLeaf      bool
-	TopLeft     *Node
-	TopRight    *Node
-	BottomLeft  *Node
-	BottomRight *Node
+	TopLeft     *QuadTreeNode
+	TopRight    *QuadTreeNode
+	BottomLeft  *QuadTreeNode
+	BottomRight *QuadTreeNode
 }
