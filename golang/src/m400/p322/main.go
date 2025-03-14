@@ -2,16 +2,9 @@ package p322
 
 import "sort"
 
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
-}
-
 const INTMAX = 1 << 31
 
-func coinChange2(coins []int, amount int) int {
+func coinChange(coins []int, amount int) int {
 	if amount == 0 {
 		return 0
 	}

@@ -5,5 +5,5 @@ package p6
 // Y   I   R
 
 func convert(s string, numRows int) string {
-
+	return ""
 }

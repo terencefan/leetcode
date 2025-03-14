@@ -1,121 +1,60 @@
-package main
+package p301
 
-import (
-	"fmt"
-)
+const INTMIN = -1 << 31
+const INTMAX = 1 << 31
 
-const LP = '('
-const RP = ')'
-
-type Queue struct {
-	l, r int
-	cap  int
-	arr  []*Node
-}
-
-func (q *Queue) push(node *Node) {
-	if q.r-q.l == q.cap {
-		oldArr := q.arr
-		q.arr = make([]*Node, q.cap*2)
-
-		k := 0
-		for i := q.l; i < q.r; i++ {
-			q.arr[k] = oldArr[i%q.cap]
-			k++
+func recursive(m map[string]bool, s string, bytes []byte, lc, rc, clc, idx int) {
+	if idx == len(s) {
+		if lc == rc {
+			m[string(bytes)] = true
 		}
-		q.l = 0
-		q.r = q.cap
-		q.cap *= 2
-	}
-	q.arr[q.r%q.cap] = node
-	q.r++
-}
-
-func (q *Queue) pop() *Node {
-	defer func() { q.l++ }()
-	return q.arr[q.l%q.cap]
-}
-
-func (q *Queue) empty() bool {
-	return q.l == q.r
-}
-
-func NewQueue() *Queue {
-	return &Queue{
-		0, 0, 16,
-		make([]*Node, 16),
-	}
-}
-
-type Node struct {
-	s    string
-	l, r int
-	l2r  bool
-}
-
-func bfs(q *Queue, r *[]string) {
-	if q.empty() {
 		return
 	}
 
-	node := q.pop()
-	var count int
+	b := s[idx]
 
-	if node.l2r {
-		for i := node.l; i < len(node.s); i++ {
-			if node.s[i] == LP {
-				count++
-			} else if node.s[i] == RP {
-				count--
-			}
-
-			if count < 0 {
-				for j := node.r; j <= i; j++ {
-					if node.s[j] == RP && (j == node.r || node.s[j-1] != RP) {
-						q.push(&Node{node.s[:j] + node.s[j+1:], i, j, true})
-						bfs(q, r)
-					}
-				}
-				return
-			}
+	if b == '(' {
+		if lc > 0 {
+			// remove this '('
+			recursive(m, s, bytes, lc-1, rc, clc, idx+1)
 		}
-		q.push(&Node{node.s, len(node.s) - 1, len(node.s) - 1, false})
-		bfs(q, r)
+		recursive(m, s, append(bytes, b), lc, rc, clc+1, idx+1)
+	} else if b == ')' {
+		if rc > 0 {
+			// remove this ')'
+			recursive(m, s, bytes, lc, rc-1, clc, idx+1)
+		}
+		if clc > 0 {
+			recursive(m, s, append(bytes, b), lc, rc, clc-1, idx+1)
+		}
 	} else {
-		for i := node.l; i >= 0; i-- {
-			if node.s[i] == LP {
-				count--
-			} else if node.s[i] == RP {
-				count++
-			}
-
-			if count < 0 {
-				for j := node.r; j >= i; j-- {
-					if node.s[j] == LP && (j == node.r || node.s[j+1] != LP) {
-						q.push(&Node{node.s[:j] + node.s[j+1:], i - 1, j - 1, false})
-						bfs(q, r)
-					}
-				}
-				return
-			}
-
-		}
-		*r = append(*r, node.s)
+		recursive(m, s, append(bytes, b), lc, rc, clc, idx+1)
 	}
-	return
 }
 
 func removeInvalidParentheses(s string) []string {
-	var r []string
+	x, minx := 0, INTMAX
+	for _, c := range s {
+		if c == '(' {
+			x++
+		} else if c == ')' {
+			x--
+		}
+		minx = min(x, minx)
+	}
 
-	q := NewQueue()
-	q.push(&Node{s, 0, 0, true})
+	var bytes = make([]byte, 0)
+	var m = make(map[string]bool, 0)
 
-	bfs(q, &r)
-	return r
-}
+	if minx < 0 {
+		recursive(m, s, bytes, x-minx, max(-x, -minx), 0, 0)
+	} else {
+		recursive(m, s, bytes, x, 0, 0, 0)
+	}
 
-func main() {
-	r := removeInvalidParentheses("(()")
-	fmt.Println(r)
+	keys := make([]string, 0)
+	for key := range m {
+		keys = append(keys, key)
+	}
+	return keys
 }
