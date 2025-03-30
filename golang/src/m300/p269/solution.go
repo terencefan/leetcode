@@ -1,114 +1,63 @@
-package main
-
-import (
-	"fmt"
-)
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	} else {
-		return a
-	}
-}
-
-func diff(l, r string, g *G) {
-	for i := 0; i < min(len(l), len(r)); i++ {
-		if l[i] != r[i] {
-			g.add(l[i]-'a', r[i]-'a')
-			break
-		}
-	}
-	return
-}
-
-type G struct {
-	v map[byte][]byte
-}
-
-func (g *G) add(a, b byte) {
-	if g.v[a] == nil {
-		g.v[a] = []byte{b}
-	} else {
-		g.v[a] = append(g.v[a], b)
-	}
-}
-
-func topologySort(g *G, chars []int) []byte {
-
-	count := 0
-	for i := 0; i < 26; i++ {
-		if chars[i] < 0 {
-			chars[i] = 0
-			count++
-		} else {
-			chars[i] = -1
-		}
-	}
-
-	for _, arr := range g.v {
-		for _, r := range arr {
-			chars[r]++
-		}
-	}
-
-	cur := byte(26)
-	res := make([]byte, 0)
-
-	for {
-		if cur > 25 {
-			for i := 0; i < 26; i++ {
-				if chars[i] == 0 {
-					cur = byte(i)
-				}
-			}
-		}
-		if cur > 25 {
-			break
-		}
-		res = append(res, byte(cur+'a'))
-		chars[cur] = -1
-
-		nexts := g.v[cur]
-		cur = 26
-
-		for _, r := range nexts {
-			chars[r]--
-			if chars[r] == 0 {
-				cur = r
-			}
-		}
-	}
-
-	if count == len(res) {
-		return res
-	} else {
-		return []byte{}
-	}
-}
+package p269
 
 func alienOrder(words []string) string {
-	var g = &G{make(map[byte][]byte)}
+	var edges = make(map[byte]map[byte]int, 0)
+	var indegree = make(map[byte]int, 0)
 
-	for i := 0; i < len(words)-1; i++ {
-		diff(words[i], words[i+1], g)
-	}
-
-	var chars = make([]int, 26)
 	for _, word := range words {
 		for _, c := range word {
-			chars[c-'a'] = -1
+			indegree[byte(c)] = 0
 		}
 	}
 
-	b := topologySort(g, chars)
-	return string(b)
-}
+	for i := range len(words) - 1 {
+		prev, next := words[i], words[i+1]
 
-func main() {
-	r := alienOrder([]string{
-		"wrt",
-		"wrf",
-	})
-	fmt.Println(r)
+		k := 0
+		for ; k < len(prev) && k < len(next); k++ {
+			from, to := prev[k], next[k]
+			if from != to {
+				if _, ok := edges[from]; !ok {
+					edges[from] = make(map[byte]int, 0)
+				}
+				if edges[from][to] == 0 {
+					edges[from][to]++
+					indegree[to]++
+				}
+				break
+			}
+		}
+		if k == len(next) && len(prev) > len(next) {
+			return ""
+		}
+	}
+
+	q := make([]byte, 0)
+	for c, d := range indegree {
+		if d == 0 {
+			q = append(q, c)
+		}
+	}
+
+	var orders = make([]byte, 0)
+
+	for len(q) > 0 {
+		c := q[0]
+		q = q[1:]
+		orders = append(orders, c)
+
+		for next, _ := range edges[c] {
+			indegree[next]--
+			if indegree[next] == 0 {
+				q = append(q, next)
+			}
+		}
+	}
+
+	for _, c := range indegree {
+		if c != 0 {
+			return ""
+		}
+	}
+	return string(orders)
 }

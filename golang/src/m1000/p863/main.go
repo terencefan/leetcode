@@ -24,6 +24,7 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 
 	step := 0
 	var q = make([]*TreeNode, 0)
+	var r = make([]int, 0)
 
 	for len(q) > 0 {
 		l := len(q)
@@ -31,7 +32,6 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 		for i := range l {
 			node := q[i]
 			if step == k {
-				var r = make([]int, 0)
 				r = append(r, node.Val)
 			}
 		}
@@ -40,5 +40,5 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 			return r
 		}
 	}
-
+	return []int{}
 }

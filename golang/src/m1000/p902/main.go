@@ -2,9 +2,6 @@ package p902
 
 var digitCache map[int]int
 
-// 5535
-// 1, 3, 5
-
 func calculate(digits []int, num, base int) int {
 	if base == 0 {
 		return 0
@@ -13,7 +10,7 @@ func calculate(digits []int, num, base int) int {
 	}
 
 	var r, x = 0, num / base
-	for i, digit := range digits {
+	for _, digit := range digits {
 		if digit > x {
 			break
 		}
