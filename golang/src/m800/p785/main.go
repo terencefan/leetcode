@@ -5,39 +5,51 @@ func isBipartite(graph [][]int) bool {
 		return false
 	}
 
-	edgeMap := make(map[int]map[int]bool)
-	for i, edges := range graph {
-		if _, ok := edgeMap[i]; !ok {
-			edgeMap[i] = make(map[int]bool)
-		}
-		for _, edge := range edges {
-			edgeMap[i][edge] = true
+	edgeMap := make([]map[int]bool, len(graph))
+	for i := range len(graph) {
+		edgeMap[i] = make(map[int]bool)
+	}
+
+	for from, nodes := range graph {
+		for _, node := range nodes {
+			edgeMap[from][node] = true
+			edgeMap[node][from] = true
 		}
 	}
 
 	setA, setB := make(map[int]bool), make(map[int]bool)
-
-	q, inA := []int{0}, true
-
-	for len(q) > 0 {
-		l := len(q)
-
-		for i := range l {
-			node := q[i]
-			if inA {
-				setA[node] = true
-			} else {
-				setB[node] = true
-			}
-			for next, _ := range edgeMap[node] {
-				delete(edgeMap[next], node)
-				q = append(q, next)
-			}
+	for k := range graph {
+		if setA[k] || setB[k] {
+			continue
 		}
+		q, inA := []int{k}, true
 
-		q = q[l:]
-		inA = !inA
+		for len(q) > 0 {
+			l := len(q)
+
+			for i := range l {
+				node := q[i]
+				if inA {
+					if setB[node] {
+						return false
+					}
+					setA[node] = true
+				} else {
+					if setA[node] {
+						return false
+					}
+					setB[node] = true
+				}
+				for next := range edgeMap[node] {
+					delete(edgeMap[next], node)
+					delete(edgeMap[node], next)
+					q = append(q, next)
+				}
+			}
+
+			q = q[l:]
+			inA = !inA
+		}
 	}
-
 	return true
 }

@@ -17,7 +17,7 @@ func checkInclusion(s1 string, s2 string) bool {
 	for r := range len(s2) {
 		n[s2[r]]++
 		for n[s2[r]] > m[s2[r]] && l <= r {
-			m[s2[l]]--
+			n[s2[l]]--
 			l++
 		}
 		if r-l == len(s1)-1 {
