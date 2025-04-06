@@ -10,4 +10,5 @@ func frequency(basket []int) map[int]int {
 
 func minCost(basket1 []int, basket2 []int) int64 {
 	f1, f2 := frequency(basket1), frequency(basket2)
+
 }
