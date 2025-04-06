@@ -1,50 +1,39 @@
-package main
+package p528
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "math/rand"
 
 type Solution struct {
-	arr []int
-	max int
+	p []int
+	s int
 }
 
+// 1, 3
+
+// 1 (0), 4 (1,2,3)
+
 func Constructor(w []int) Solution {
-	arr := make([]int, 0)
-
-	c := 0
-	for _, num := range w {
-		c += num
-		arr = append(arr, c)
+	p := make([]int, 0)
+	s := 0
+	for _, v := range w {
+		s += v
+		p = append(p, s)
 	}
-
-	return Solution{
-		arr: arr,
-		max: c,
-	}
+	return Solution{p, s}
 }
 
 func (this *Solution) PickIndex() int {
-	current := rand.Intn(this.max)
+	n := rand.Intn(this.s)
 
-	lo, hi := 0, len(this.arr)-1
-	for lo < hi {
-		mid := lo + (hi-lo)/2
-		if current >= this.arr[mid] {
-			lo = mid + 1
+	l, r := 0, len(this.p)-1
+	for l < r {
+		m := l + (r-l)/2
+		if this.p[m] > n {
+			r = m
 		} else {
-			hi = mid
+			l = m + 1
 		}
 	}
-	return lo
-}
-
-func main() {
-	s := Constructor([]int{1, 2, 3})
-	for i := 0; i < 10; i++ {
-		fmt.Println(s.PickIndex())
-	}
+	return l
 }
 
 /**

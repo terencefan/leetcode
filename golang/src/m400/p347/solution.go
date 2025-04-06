@@ -1,66 +1,80 @@
-package main
+package p347
 
-import (
-	"container/heap"
-	"fmt"
-)
-
-type Node struct {
+type NumCount struct {
 	num, count int
 }
 
-type IntArray struct {
-	arr []*Node
+type MinHeapK struct {
+	data []NumCount
+	size int
 }
 
-func (a *IntArray) Len() int {
-	return len(a.arr)
+func parent(i int) int {
+	return (i - 1) / 2
 }
 
-func (a *IntArray) Less(i, j int) bool {
-	return a.arr[i].count < a.arr[j].count
+func children(i int) (int, int) {
+	return i*2 + 1, i*2 + 2
 }
 
-func (a *IntArray) Swap(i, j int) {
-	a.arr[i], a.arr[j] = a.arr[j], a.arr[i]
-}
-
-func (a *IntArray) Push(i interface{}) {
-	if x, ok := i.(*Node); ok {
-		a.arr = append(a.arr, x)
-	}
-}
-
-func (a *IntArray) Pop() (r interface{}) {
-	r = a.arr[a.Len()-1]
-	a.arr = a.arr[:a.Len()-1]
-	return
-}
-
-func topKFrequent(nums []int, k int) (r []int) {
-	m := make(map[int]int)
-
-	for _, num := range nums {
-		m[num]++
-	}
-
-	arr := &IntArray{make([]*Node, 0)}
-	heap.Init(arr)
-
-	for num, count := range m {
-		heap.Push(arr, &Node{num, count})
-		if arr.Len() > k {
-			heap.Pop(arr)
+func (h *MinHeapK) Push(num, count int) {
+	if len(h.data) < h.size {
+		h.data = append(h.data, NumCount{num: num, count: count})
+		i := len(h.data) - 1
+		for i > 0 {
+			p := parent(i)
+			if h.data[p].count <= h.data[i].count {
+				break
+			}
+			h.data[p], h.data[i] = h.data[i], h.data[p]
+			i = p
+		}
+	} else if count <= h.data[0].count {
+		return
+	} else {
+		h.data[0] = NumCount{num: num, count: count}
+		i := 0
+		for {
+			l, r := children(i)
+			if l >= len(h.data) {
+				break
+			} else if r >= len(h.data) {
+				if h.data[l].count < h.data[i].count {
+					h.data[l], h.data[i] = h.data[i], h.data[l]
+					i = l
+				} else {
+					break
+				}
+			} else {
+				if h.data[l].count >= h.data[r].count && h.data[r].count < h.data[i].count {
+					h.data[r], h.data[i] = h.data[i], h.data[r]
+					i = r
+				} else if h.data[r].count >= h.data[l].count && h.data[l].count < h.data[i].count {
+					h.data[l], h.data[i] = h.data[i], h.data[l]
+					i = l
+				} else {
+					break
+				}
+			}
 		}
 	}
-
-	for _, node := range arr.arr {
-		r = append(r, node.num)
-	}
-	return
 }
 
-func main() {
-	r := topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)
-	fmt.Print(r)
+func topKFrequent(nums []int, k int) []int {
+	freq := make(map[int]int)
+
+	for _, num := range nums {
+		freq[num]++
+	}
+
+	h := &MinHeapK{size: k}
+	for num, count := range freq {
+		h.Push(num, count)
+	}
+
+	r := make([]int, k)
+	for i, item := range h.data {
+		r[i] = item.num
+	}
+	return r
 }

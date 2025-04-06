@@ -2,6 +2,10 @@ package p934
 
 var directions = [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
 
+type Point struct {
+	x, y int
+}
+
 func fill(grid [][]int, i, j int) {
 	if i < 0 || i >= len(grid) || j < 0 || j >= len(grid[0]) || grid[i][j] != 1 {
 		return
@@ -11,32 +15,6 @@ func fill(grid [][]int, i, j int) {
 	fill(grid, i+1, j)
 	fill(grid, i, j-1)
 	fill(grid, i, j+1)
-}
-
-func sail(grid [][]int, i, j int) {
-	q := [][]int{{i, j}}
-
-	miles := 0
-	for len(q) > 0 {
-		l := len(q)
-		miles--
-
-		for _, p := range q {
-			x, y := p[0], p[1]
-			for _, d := range directions {
-				nx, ny := x+d[0], y+d[1]
-				if nx >= 0 && nx < len(grid) && ny >= 0 && ny < len(grid[0]) {
-					if grid[nx][ny] > 0 {
-						continue
-					} else if grid[nx][ny] == 0 || miles > grid[nx][ny] {
-						grid[nx][ny] = miles
-						q = append(q, []int{nx, ny})
-					}
-				}
-			}
-		}
-		q = q[l:]
-	}
 }
 
 func shortestBridge(grid [][]int) int {
@@ -52,13 +30,48 @@ func shortestBridge(grid [][]int) int {
 		}
 	}
 
+	q := make([]Point, 0)
+	targets := make(map[Point]bool)
+
 	for i, row := range grid {
 		for j, val := range row {
-			if val == 2 {
-				sail(grid, i, j)
+			if val == 1 {
+				grid[i][j] = -1
+				q = append(q, Point{i, j})
+			} else if val == 2 {
+				grid[i][j] = 0
+				targets[Point{i, j}] = true
 			}
 		}
 	}
 
-	return 0
+	miles := 0
+	for len(q) > 0 {
+		l := len(q)
+
+		for i := range l {
+			p := q[i]
+
+			for _, d := range directions {
+				nx, ny := p.x+d[0], p.y+d[1]
+				if targets[Point{nx, ny}] {
+					return miles
+				}
+				if nx < 0 || nx >= m || ny < 0 || ny >= n {
+					continue
+				} else if grid[nx][ny] == 0 {
+					grid[nx][ny] = 1
+					q = append(q, Point{nx, ny})
+				} else if grid[nx][ny] > miles {
+					grid[nx][ny] = miles
+					q = append(q, Point{nx, ny})
+				}
+			}
+
+		}
+
+		q = q[l:]
+		miles++
+	}
+	return -1
 }
