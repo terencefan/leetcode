@@ -1,8 +1,8 @@
 # 范腾远
 
-📍 上海 ｜ 📞 15216709049 | 📧 stdrickforce@gmail.com
+上海 ｜ (+86) 15216709049 | stdrickforce@gmail.com
 
-🌐 LinkedIn: https://linkedin.com/in/inority ｜ 🔗 Github: https://github.com/terencefan
+LinkedIn: https://linkedin.com/in/inority ｜ Github: https://github.com/terencefan
 
 ## 教育背景
 
@@ -14,7 +14,7 @@
 
 - 开源工具：Kubernetes(K8s) / docker / Redis / SQL
 
-- 前端开发：NodeJS / TypeScript / React / AngularJS
+- 前端开发：NodeJS / TypeScript / React
 
 - 英语：流畅阅读技术文档，具备口语和书面交流能力
 
@@ -24,7 +24,7 @@
 
 ### 微软亚太研发中心 - Azure 云计算
 
-- Software Engineer 2
+- Software Engineer II
 - 2019.8 至今
 
 #### Azure SignalR / Web PubSub 云服务开发
@@ -42,7 +42,7 @@
 - 协助开发多语言 SDK，如 Python / Java
 - 其他日常工作，如本地化、日志、监控、oncall 等
 
-在本团队中，我主要使用 C# 作为开发语言，并使用 Redis / K8s 等工具，同时会使用 TypeScript / Golang 进行简单的前端和辅助工具开发。
+在本团队中，我主要使用 C# 作为开发语言，并使用 Redis / K8s 等工具，同时会使用 TypeScript + ReactJS 进行简单的前端开发，以及使用 Golang 进行工具开发。
 
 我们的服务端 SDK 是开源项目，项目地址：https://github.com/Azure/azure-signalr
 
@@ -69,14 +69,8 @@ CAT 是由大众点评开发，现由美团点评维护的基于客户端埋点�
 
 ### 其他
 
-- 百姓网
+- 百姓网：基于 PHP6 + swoole + Thrift 开发后台系统
 
-  基于 PHP + Thrift 开发后台系统，并提供基于 PHP6 + swoole 的解决方案
+- 小红书：基于 Python 开发社区后台系统和推送系统
 
-- 小红书
-
-  基于 Python 开发社区后台系统和推送系统
-
-- 饿了么
-
-  基于 Python + Thrift 协议开发 RPC 服务，同时基于 AngularJS 开发配送后台系统
+- 饿了么：基于 Python + Thrift 协议开发 RPC 服务，基于 AngularJS 开发配送后台系统

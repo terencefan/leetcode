@@ -38,3 +38,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+# JavaScript
+node_modules/
