@@ -41,3 +41,6 @@ nbdist/
 
 # JavaScript
 node_modules/
+
+# Generated files
+*.pdf

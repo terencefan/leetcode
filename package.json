@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "markdown-pdf": "^11.0.0"
+  },
+  "scripts": {
+    "resume": "markdown-pdf FANTENGYUAN-enUS.md && markdown-pdf FANTENGYUAN-zhCN.md"
   }
 }
