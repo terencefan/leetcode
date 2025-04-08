@@ -1,3 +1,16 @@
+---
+stylesheet: https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css
+body_class: markdown-body
+css: |-
+  .page-break { page-break-after: always; }
+  .markdown-body { font-size: 10px; }
+  .markdown-body pre > code { white-space: pre-wrap; }
+pdf_options:
+  format: A4
+  margin: 10mm
+  printBackground: true
+---
+
 # Fan Tengyuan
 
 Shanghai, China | (+86) 15216709049 | stdrickforce@gmail.com
@@ -21,10 +34,6 @@ Kubernetes (K8s) • Redis • Thrift • ElasticSearch • MySQL
 **Frontend development**
 
 Node.js • TypeScript • React
-
-**English**
-
-Proficient in spoken & written communication
 
 ## Experience
 
@@ -56,6 +65,8 @@ My primary programming language is **C#** in this project, and frequently work w
 Our server-side SDKs are open-source projects, available at:
 
 https://github.com/Azure/azure-signalr • https://github.com/Azure/azure-webpubsub
+
+<div class="page-break"></div>
 
 ### Meituan-Dianping - Infrastructure
 

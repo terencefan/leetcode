@@ -1,0 +1,139 @@
+{
+  "basics": {
+    "name": "范腾远",
+    "label": "软件开发工程师",
+    "image": "",
+    "email": "stdrickforce@gmail.com",
+    "phone": "15216709049",
+    "url": "https://github.com/terencefan",
+    "summary": "后端开发工程师，具有使用多种技术栈的实际生产经验，其中包括使用 C#/Java/Python 开发 Web 服务，使用 C/Golang 开发底层工具和中间件。专注于高性能并发系统和网络编程。​",
+    "location": {
+      "city": "徐汇区",
+      "region": "上海"
+    }
+  },
+  "work": [
+    {
+      "name": "微软亚太研发中心 - Azure 云服务",
+      "position": "Software Development Engineer II",
+      "startDate": "2019-08",
+      "endDate": "now",
+      "summary": "​​作为 Azure 实时通信服务(SignalR / Web PubSub)的核心开发者, 我通过设计实时通信协议，实现应用层负载均衡和故障转移, 构建高可用的认证授权体系, 开发维护多语言SDK(C#/Java/Python)，技术栈涵盖 C# 服务端开发，Golang 工具链开发和 TypeScript/React 前端开发，为开发者提供开箱即用的实时通信解决方案。​",
+      "highlights": [
+        "WebSocket 连接负载均衡与故障转移方案​",
+        "网络协议设计、实现与优化​",
+        "基于 Redis 的消息队列和缓存​",
+        "基于JWT令牌、OAuth2.0和RBAC的认证授权体系",
+        "​Kubernetes (K8s) 集群管理​"
+      ]
+    },
+    {
+      "name": "美团点评 - 基础研发平台",
+      "position": "后端开发工程师",
+      "startDate": "2018-01",
+      "endDate": "2019-08",
+      "summary": "​​作为美团开源分布式监控系统CAT的核心开发者之一，我主导开发了多语言SDK（C/Golang/Python），并优化数据采集流程，构建了秒级延迟的实时监控告警系统，通过集成Kafka/Hadoop/Elasticsearch等中间件，并利用 Vue 和 Echarts 开源前端技术，为公司提供统一可观测性解决方案。​",
+      "highlights": [
+        "Java 秒级监控数据采集与处理服务端",
+        "C 语言 tcp 长连接和 mpsc 消息队列工具",
+        "Golang/Python/JavaScript 多语言客户端埋点工具",
+        "基于 Vue 和 Echarts 的实时监控前端产品"
+      ]
+    },
+    {
+      "name": "百姓网 - 架构部",
+      "position": "后端开发工程师",
+      "startDate": "2016-01",
+      "endDate": "2018-01",
+      "summary": "​作为百姓网架构组的成员之一，我主导进行了 PHP6 的升级工作，并通过引入 Swoole 协程模型和 Thrift 设计微服务架构，实现核心业务解耦与性能提升。",
+      "highlights": [
+        "基于 Swoole 和 Thrift 的微服务",
+        "C 语言 PHP extension",
+        "Golang benchmark 工具"
+      ]
+    },
+    {
+      "name": "饿了么 - 自营配送系统",
+      "position": "后端开发工程师",
+      "startDate": "2013-07",
+      "endDate": "2016-01",
+      "summary": "作为饿了么早期核心开发者，主导设计了短信通知系统、面向合作方、移动端和前端三方的 RESTful API 网关及基于 Thrift RPC 协议的配送后台系统，支撑日均万级订单业务。",
+      "highlights": [
+        "基于 Thrift 的分布式 RPC 系统",
+        "基于 Flask 框架的 Restful API 网关",
+        "基于 Mysql 的数据库设计与实现",
+        "AngularJS 前端开发"
+      ]
+    }
+  ],
+  "education": [{
+    "institution": "上海交通大学",
+    "url": "https://sjtu.edu.cn/",
+    "area": "软件工程",
+    "studyType": "学士",
+    "startDate": "2009-09-01",
+    "endDate": "2013-07-01"
+  }],
+  "skills": [
+    {
+      "name": "后端开发",
+      "level": "精通",
+      "keywords": [
+        "C#",
+        "Golang",
+        "Java",
+        "C"
+      ]
+    },
+    {
+      "name": "网络编程",
+      "level": "精通",
+      "keywords": [
+        "TCP/IP",
+        "HTTP/HTTPS",
+        "WebSocket"
+      ]
+    },
+    {
+      "name": "系统设计",
+      "level": "精通",
+      "keywords": [
+        "微服务",
+        "网络协议",
+        "监控中间件",
+        "RPC"
+      ]
+    },
+    {
+      "name": "Redis",
+      "level": "精通",
+      "keywords": [
+        "消息订阅/发布",
+        "分布式缓存/锁"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "level": "精通",
+      "keywords": [
+        "K8s 集群管理",
+        "Pod 资源管理",
+        "Ingress 负载均衡"
+      ]
+    },
+    {
+      "name": "前端开发",
+      "level": "熟悉",
+      "keywords": [
+        "Node.js",
+        "Typescript",
+        "React",
+        "Echarts"
+      ]
+    }
+  ],
+  "languages": [{
+    "language": "英语",
+    "fluency": "具备流利的读写能力和良好的口语能力"
+  }]
+}

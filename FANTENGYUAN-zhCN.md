@@ -1,3 +1,16 @@
+---
+stylesheet: https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css
+body_class: markdown-body
+css: |-
+  .page-break { page-break-after: always; }
+  .markdown-body { font-size: 10px; }
+  .markdown-body pre > code { white-space: pre-wrap; }
+pdf_options:
+  format: A4
+  margin: 10mm
+  printBackground: true
+---
+
 # 范腾远
 
 上海 ｜ (+86) 15216709049 | stdrickforce@gmail.com
@@ -45,6 +58,8 @@ LinkedIn: https://linkedin.com/in/inority ｜ Github: https://github.com/terence
 我们的服务端 SDK 是开源项目，项目地址：
 
 https://github.com/Azure/azure-signalr • https://github.com/Azure/azure-webpubsub
+
+<div class="page-break"></div>
 
 ### 美团点评 - 基础研发平台
 
