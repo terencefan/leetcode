@@ -1,22 +1,21 @@
 package p3
 
 func lengthOfLongestSubstring(s string) int {
-	var m = make(map[byte]bool)
+	var m = make(map[rune]bool)
 	var l, r = 0, 0
 
-	for i := range s {
-		c := s[i]
+	for _, c := range s {
 		if _, ok := m[c]; !ok {
 			m[c] = true
 			r = max(r, len(m))
 			continue
 		}
 
-		for s[l] != c {
-			delete(m, s[l])
+		for rune(s[l]) != c {
+			delete(m, rune(s[l]))
 			l++
 		}
-		l++
+		l++ // skip c
 	}
 	return r
 }
