@@ -9,11 +9,6 @@ type Edge struct {
 	direction rune
 }
 
-type Record struct {
-	val    int
-	routes []byte
-}
-
 func rec(node *TreeNode, m map[int][]Edge) {
 	if node.Left != nil {
 		m[node.Val] = append(m[node.Val], Edge{node.Left.Val, 'L'})
