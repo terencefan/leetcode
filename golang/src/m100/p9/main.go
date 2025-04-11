@@ -12,7 +12,7 @@ func isPalindrome(x int) bool {
 		n *= 10
 	}
 
-	for n > 0 {
+	for n > 0 && x > 0 {
 		a, b := x/n, x%10
 		if a != b {
 			return false

@@ -43,5 +43,6 @@ nbdist/
 node_modules/
 
 # Generated files
+.DS_Store
 *.pdf
 out/

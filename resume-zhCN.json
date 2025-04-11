@@ -6,7 +6,7 @@
     "email": "stdrickforce@gmail.com",
     "phone": "15216709049",
     "url": "https://github.com/terencefan",
-    "summary": "后端开发工程师，具有使用多种技术栈的实际生产经验，其中包括使用 C#/Java/Python 开发 Web 服务，使用 C/Golang 开发底层工具和中间件。专注于高性能并发系统和网络编程。​",
+    "summary": "后端开发工程师，具有使用多种技术栈的实际生产经验，其中包括使用 C#/Java/Python 开发 Web 服务，使用 C/Golang 开发底层工具和网络中间件。专注于高性能并发系统和网络编程。​",
     "location": {
       "city": "徐汇区",
       "region": "上海"
@@ -18,13 +18,13 @@
       "position": "Software Development Engineer II",
       "startDate": "2019-08",
       "endDate": "now",
-      "summary": "​​作为 Azure 实时通信服务(SignalR / Web PubSub)的核心开发者, 我通过设计实时通信协议，实现应用层负载均衡和故障转移, 构建高可用的认证授权体系, 开发维护多语言SDK(C#/Java/Python)，技术栈涵盖 C# 服务端开发，Golang 工具链开发和 TypeScript/React 前端开发，为开发者提供开箱即用的实时通信解决方案。​",
+      "summary": "​作为Azure SignalR/WebPubSub核心开发者，我通过长连接无损迁移和智能负载均衡实现单租户500K连接，并参与优化 Linux 内核参数和基于 cgroup 的细粒度资源隔离支撑 50M 单集群连接。从 0 到 1 构建基于 OAuth2.0/RBAC 的多租户细粒度访问控制体系，并使用 K8s Ingress/Egress构建零信任安全体系，技术栈包括 C# 实现高并发服务核心，Golang 实现高性能网络中间件，并集成 Promethus、Fluentd 和 mdsd 等组件实现全栈可观测性。​​",
       "highlights": [
-        "WebSocket 连接负载均衡与故障转移方案​",
-        "网络协议设计、实现与优化​",
-        "基于 Redis 的消息队列和缓存​",
-        "基于JWT令牌、OAuth2.0和RBAC的认证授权体系",
-        "​Kubernetes (K8s) 集群管理​"
+        "单集群 500M，单租户 50K 连接规模",
+        "WebSocket 长连接无损迁移，降低 80%+ 客户端重连率",
+        "动态负载均衡，降低 50% Redis Pub/Sub 资源消耗",
+        "OAuth2.0 和 RBAC 实现多租户细粒度访问控制",
+        "K8s Ingress/Egress 搭建零信任安全体系"
       ]
     },
     {
@@ -32,12 +32,12 @@
       "position": "后端开发工程师",
       "startDate": "2018-01",
       "endDate": "2019-08",
-      "summary": "​​作为美团开源分布式监控系统CAT的核心开发者之一，我主导开发了多语言SDK（C/Golang/Python），并优化数据采集流程，构建了秒级延迟的实时监控告警系统，通过集成Kafka/Hadoop/Elasticsearch等中间件，并利用 Vue 和 Echarts 开源前端技术，为公司提供统一可观测性解决方案。​",
+      "summary": "​​作为美团CAT分布式可观测系统核心开发者，我主导实施了告警系统从分钟级到秒级的提升，实现多语言客户端埋点采集和Java服务端TB级数据处理（HBase/Kafka），结合Elasticsearch存储和Vue/ECharts可视化，为集团提供统一可观测性解决方案。",
       "highlights": [
-        "Java 秒级监控数据采集与处理服务端",
-        "C 语言 tcp 长连接和 mpsc 消息队列工具",
-        "Golang/Python/JavaScript 多语言客户端埋点工具",
-        "基于 Vue 和 Echarts 的实时监控前端产品"
+        "Java 内存模型优化和 GC 调优",
+        "HBase/Kafka TB 级数据采集、存储和处理",
+        "C 语言 tcp 长连接和 mpsc 消息队列 library",
+        "Golang/Python/Node.JS 多语言客户端埋点工具"
       ]
     },
     {
@@ -45,11 +45,11 @@
       "position": "后端开发工程师",
       "startDate": "2016-01",
       "endDate": "2018-01",
-      "summary": "​作为百姓网架构组的成员之一，我主导进行了 PHP6 的升级工作，并通过引入 Swoole 协程模型和 Thrift 设计微服务架构，实现核心业务解耦与性能提升。",
+      "summary": "​作为百姓网架构组的成员之一，我主导进行了 PHP6 到 PHP7 的升级工作，并通过引入 Swoole 协程模型和 Thrift 设计微服务架构，实现核心业务解耦与性能提升。",
       "highlights": [
-        "基于 Swoole 和 Thrift 的微服务",
-        "C 语言 PHP extension",
-        "Golang benchmark 工具"
+        "基于 PHP7 + Swoole 的 Thrift 微服务",
+        "C 语言 PHP extension 实现 Thrift 热加载",
+        "Golang 开发网络中间件和 benchmark 工具"
       ]
     },
     {
@@ -59,10 +59,9 @@
       "endDate": "2016-01",
       "summary": "作为饿了么早期核心开发者，主导设计了短信通知系统、面向合作方、移动端和前端三方的 RESTful API 网关及基于 Thrift RPC 协议的配送后台系统，支撑日均万级订单业务。",
       "highlights": [
-        "基于 Thrift 的分布式 RPC 系统",
-        "基于 Flask 框架的 Restful API 网关",
-        "基于 Mysql 的数据库设计与实现",
-        "AngularJS 前端开发"
+        "基于 Thrift 的分布式 RPC 服务",
+        "Restful API 网关",
+        "Mysql 的数据库设计与实现"
       ]
     }
   ],
