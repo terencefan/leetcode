@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "范腾远",
-    "label": "软件开发工程师",
+    "label": "后端开发工程师",
     "image": "",
     "email": "stdrickforce@gmail.com",
     "phone": "15216709049",
     "url": "https://github.com/terencefan",
-    "summary": "后端开发工程师，具有使用多种技术栈的实际生产经验，其中包括使用 C#/Java/Python 开发 Web 服务，使用 C/Golang 开发底层工具和网络中间件。专注于高性能并发系统和网络编程。​",
+    "summary": "后端开发工程师，具有使用多种技术栈的实际生产经验，其中包括使用 C#/Java/Python 开发 Web 服务，使用 C/Golang 开发工具和网络中间件。专注于高性能并发系统和网络编程。​",
     "location": {
       "city": "徐汇区",
       "region": "上海"
@@ -18,13 +18,14 @@
       "position": "Software Development Engineer II",
       "startDate": "2019-08",
       "endDate": "now",
-      "summary": "​作为Azure SignalR/WebPubSub核心开发者，我通过长连接无损迁移和智能负载均衡实现单租户500K连接，并参与优化 Linux 内核参数和基于 cgroup 的细粒度资源隔离支撑 50M 单集群连接。从 0 到 1 构建基于 OAuth2.0/RBAC 的多租户细粒度访问控制体系，并使用 K8s Ingress/Egress构建零信任安全体系，技术栈包括 C# 实现高并发服务核心，Golang 实现高性能网络中间件，并集成 Promethus、Fluentd 和 mdsd 等组件实现全栈可观测性。​​",
+      "summary": "​作为 Azure SignalR/WebPubSub 服务的核心开发者，我通过 Linux 内核优化、K8s 资源管理、设计并实现应用层协议等技术组合，实现单租户 500K/单集群 20M 连接的无损迁移/恢复，动态扩容和资源优化。从 0 到 1 构建基于 OAuth2.0/RBAC 的多租户细粒度访问控制体系，开发设计网络中间件并构建零信任安全体系，技术栈包括 C# 实现高并发服务核心，Golang 实现 K8s 资源管理工具和高性能网络中间件，并集成 Promethus、Fluentd 和 mdsd 等组件实现全栈可观测性。​​",
       "highlights": [
-        "单集群 500M，单租户 50K 连接规模",
-        "WebSocket 长连接无损迁移，降低 80%+ 客户端重连率",
-        "动态负载均衡，降低 50% Redis Pub/Sub 资源消耗",
+        "单租户 500K / 单集群 20M 的 WebSocket 连接管理",
+        "k8s 资源隔离和调度，实现内存高效利用",
+        "WebSocket 长连接无损迁移，降低维护期间 80%+ 客户端重连率",
+        "大规模应用 Redis Pub/Sub，性能优化和故障排查",
         "OAuth2.0 和 RBAC 实现多租户细粒度访问控制",
-        "K8s Ingress/Egress 搭建零信任安全体系"
+        "基于 TLS / Tunnel / ACL / RBAC 搭建零信任安全体系"
       ]
     },
     {
@@ -32,11 +33,11 @@
       "position": "后端开发工程师",
       "startDate": "2018-01",
       "endDate": "2019-08",
-      "summary": "​​作为美团CAT分布式可观测系统核心开发者，我主导实施了告警系统从分钟级到秒级的提升，实现多语言客户端埋点采集和Java服务端TB级数据处理（HBase/Kafka），结合Elasticsearch存储和Vue/ECharts可视化，为集团提供统一可观测性解决方案。",
+      "summary": "​作为美团CAT分布式可观测系统核心开发者，我通过设计和构建基于 Kafka/Hbase 的 TB 级实时数据处理管道，实现了告警系统从分钟级向秒级的优化。同时基于 C 开发多语言客户端埋点工具，实现数据预处理和负载均衡，并结合 Elasticsearch 和 Vue/ECharts 可视化，为集团提供统一告警解决方案。",
       "highlights": [
         "Java 内存模型优化和 GC 调优",
-        "HBase/Kafka TB 级数据采集、存储和处理",
-        "C 语言 tcp 长连接和 mpsc 消息队列 library",
+        "HBase/Kafka TB 级实时数据处理管道",
+        "C 语言开发网络层和无锁数据结构实现客户端性能优化",
         "Golang/Python/Node.JS 多语言客户端埋点工具"
       ]
     },
@@ -99,7 +100,7 @@
       "keywords": [
         "微服务",
         "网络协议",
-        "监控中间件",
+        "可观测系统",
         "RPC"
       ]
     },
@@ -107,6 +108,7 @@
       "name": "Redis",
       "level": "精通",
       "keywords": [
+        "集群和分片",
         "消息订阅/发布",
         "分布式缓存/锁"
       ]
@@ -115,24 +117,10 @@
       "name": "Kubernetes",
       "level": "精通",
       "keywords": [
-        "K8s 集群管理",
-        "Pod 资源管理",
+        "Pod/Container 容器编排和资源管理",
+        "Deployment 集群管理",
         "Ingress 负载均衡"
       ]
-    },
-    {
-      "name": "前端开发",
-      "level": "熟悉",
-      "keywords": [
-        "Node.js",
-        "Typescript",
-        "React",
-        "Echarts"
-      ]
     }
-  ],
-  "languages": [{
-    "language": "英语",
-    "fluency": "具备流利的读写能力和良好的口语能力"
-  }]
+  ]
 }
