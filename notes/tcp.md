@@ -29,7 +29,9 @@ net.ipv4.tcp_timestamps=0
 netstat -s | grep retrans
 ```
 
-tcp_fastopen 后续连接减少一个 RTT
+- RACK, SACK
+
+tcp_fastopen 后续减少一个 RTT
 
 RTT, BDP
 
