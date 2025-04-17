@@ -2,6 +2,10 @@ CFS 使用 rbtree，原因是相比 heap 常数因子更小
 
 每个 unit 1000 connections, 1G memory，1024 shares，0.5 cpu core
 
+18M / minute
+
+500K connections, 250k message
+
 /sys/fs/cgroup
 
 td-agent 1c 1G

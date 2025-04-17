@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "范腾远",
-    "label": "后端开发工程师",
+    "label": "高级后端开发工程师",
     "image": "",
     "email": "stdrickforce@gmail.com",
     "phone": "15216709049",
     "url": "https://github.com/terencefan",
-    "summary": "后端开发工程师，具有使用多种技术栈的实际生产经验，其中包括使用 C#/Java/Python 开发 Web 服务，使用 C/Golang 开发工具和网络中间件。专注于高性能并发系统和网络编程。​",
+    "summary": "高级后端开发工程师，精通C#、Golang、Java等多语言服务端开发，具备从应用层到底层的全栈技术能力。深入理解各语言runtime机制，能够针对GC、内存管理和调度机制进行深度优化；熟练掌握协程、锁、原子操作等并发/同步原语，能够设计和实现高并发分布式系统；精通TCP/IP、HTTP/2等网络协议及高性能网络编程；同时具备C语言开发能力，可开发native library实现性能调优。​",
     "location": {
       "city": "徐汇区",
       "region": "上海"
@@ -36,7 +36,7 @@
       "summary": "​作为美团CAT分布式可观测系统核心开发者，我通过设计和构建基于 Kafka/Hbase 的 TB 级实时数据处理管道，实现了告警系统从分钟级向秒级的优化。同时基于 C 开发多语言客户端埋点工具，实现数据预处理和负载均衡，并结合 Elasticsearch 和 Vue/ECharts 可视化，为集团提供统一告警解决方案。",
       "highlights": [
         "Java 内存模型优化和 GC 调优",
-        "HBase/Kafka TB 级实时数据处理管道",
+        "HBase/Kafka TB 级实时数据处理",
         "C 语言开发网络层和无锁数据结构实现客户端性能优化",
         "Golang/Python/Node.JS 多语言客户端埋点工具"
       ]
@@ -117,9 +117,8 @@
       "name": "Kubernetes",
       "level": "精通",
       "keywords": [
-        "Pod/Container 容器编排和资源管理",
-        "Deployment 集群管理",
-        "Ingress 负载均衡"
+        "Pod/Container 容器编排",
+        "Deployment 集群管理"
       ]
     }
   ]

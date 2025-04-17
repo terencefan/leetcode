@@ -18,15 +18,15 @@ sysctl -w net.ipv4.tcp_congestion_control=bbr
 
 # 低延迟模式
 net.ipv4.tcp_low_latency=1
-net.ipv4.tcp_no_metrics_save=1
-net.ipv4.tcp_limit_output_bytes=32768
-net.ipv4.tcp_sack=0
-net.ipv4.tcp_timestamps=0
+net.ipv4.tcp_no_metrics_save=0
+net.ipv4.tcp_limit_output_bytes=1048576
+net.ipv4.tcp_sack=1
+net.ipv4.tcp_timestamps=1
 ```
 
 ```bash
 # 查看TCP重传率（应<0.1%）
-netstat -s | grep retrans
+nstat -z -a | grep -E "TcpRetransSegs|TcpOutSegs"
 ```
 
 - RACK, SACK
