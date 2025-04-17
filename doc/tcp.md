@@ -24,6 +24,42 @@ net.ipv4.tcp_sack=1
 net.ipv4.tcp_timestamps=1
 ```
 
+# HTTP/2
+
+frame based
+  - HEADERS
+  - DATA
+  - PRIORITY
+  - RST_STREAM
+  - SETTINGS
+  - PUSH_PROMISE
+  - PING
+  - GOAWAY
+
+
+- 强制 TLS
+
+## HPACK
+
+- 静态表 (static table)
+- 动态表
+
+##
+
+
+## QUIC
+- Stream API
+- Datagram API
+
+|                     | TCP                     | HTTP/2                             | QUIC                        |
+| ------------------- | ----------------------- | ---------------------------------- | --------------------------- |
+| Fast open           | `net.ipv4.tcp_fastopen` |                                    |                             |
+| Encryption          | 1~2 RTT (TLS1.2/1.3)    | TLS1.3, 0~1 RTT                    |                             |
+|                     |                         | merge tls and transport handshakes |                             |
+| Reliability         | retransimission         |                                    | QUIC handles                |
+| Multiplexing        | N/A                     | streams, but HOL-blocking          | independent streams         |
+| Performance on Loss | `net.ipv4.tcp_sack`     | slow                               | only affected single stream |
+
 ```bash
 # 查看TCP重传率（应<0.1%）
 nstat -z -a | grep -E "TcpRetransSegs|TcpOutSegs"
@@ -32,6 +68,12 @@ nstat -z -a | grep -E "TcpRetransSegs|TcpOutSegs"
 - RACK, SACK
 
 tcp_fastopen 后续减少一个 RTT
+
+TFO, 首次 sync 携带数据
+
+```bash
+cat /proc/sys/net/ipv4/tcp_fastopen_key # 300s expires
+```
 
 RTT, BDP
 
@@ -51,19 +93,11 @@ TCP_NODELAY (Nagle algorithm)
 
 TCP zero window 
 
-# Memory
-
-update memory limit every minutes, via cgroup
-
 # Buffer
 
 ss -ntmp | grep -A 10 <IP:PORT>
 
 cat /proc/net/sockstat
-
-# Redis
-
-pub/sub 双写，接收端去重
 
 ## Commands
 

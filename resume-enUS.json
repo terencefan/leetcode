@@ -6,7 +6,7 @@
     "email": "stdrickforce@gmail.com",
     "phone": "15216709049",
     "url": "https://github.com/terencefan",
-    "summary": "I'm a backend engineer with practical production experience using multiple tech stacks, including C#/Java/Python for web services and C/Golang for low-level tools and middleware. I focus on high-performance concurrent systems and network programming.",
+    "summary": "Senior backend engineer proficient in multi-language server-side development (C#, Golang, Java) with deep understandings from Linux kernel to language runtime optimization. Proficient in designing high-performance distributed systems, leveraging mainstream message queue(Kafka, RabbitMQ, Redis Channel) systems and both relational(MySQL) and NoSQL(Redis, HBase) databases. Skilled in network(TCP/IP, HTTP/2, WebSocket) programming and building concurrent systems using synchronization techniques (coroutines, locks, atomic operations) to maximize throughput and minimize latency. Experienced in building and maintaining large-scale distributed systems with a focus on performance, reliability, and observability.",
     "location": {
       "city": "Xuhui district",
       "region": "Shanghai"
@@ -30,12 +30,12 @@
       "position": "Software Development Engineer II",
       "startDate": "2019-08",
       "endDate": "now",
-      "summary": "As a core developer of Azure real-time communication services (SignalR/Web PubSub), I designed real-time communication protocols, implemented application-layer load balancing and failover, built a high-availability authentication and authorization system, and developed and maintained multi-language SDKs (C#/Java/Python). My tech stack includes C# server development, Golang toolchain development, and TypeScript/React frontend development.",
+      "summary": "As a core developer of Azure's real-time messaging services (SignalR/Web PubSub), I designed and implemented large-scale real-time websocket services supporting thousands of concurrent connections per tenant and millions per cluster.",
       "highlights": [
-        "WebSocket connection balancing and failover",
+        "WebSocket connection rebalancing and failover",
         "Network protocol design, implementation and optimization",
         "Redis channel-based pub/sub and cache",
-        "JWT token, OAuth2.0, and RBAC authentication/authorization",
+        "OAuth2.0, and RBAC authentication/authorization",
         "Kubernetes (K8s) cluster management"
       ]
     },
