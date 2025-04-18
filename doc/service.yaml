@@ -1,0 +1,73 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: webpubsub-bfc09ed5-a40c-40f6-a288-12e000257d4c
+  namespace: default
+  uid: 1171d60e-c05a-4e7c-820b-411f2921ef50
+  resourceVersion: '72362355'
+  creationTimestamp: '2024-11-11T05:43:18Z'
+  labels:
+    resourceKubeId: bfc09ed5-a40c-40f6-a288-12e000257d4c
+    resourceName: dphan-monitor-urltemplate
+    resourceRowGuid: 114634db-6de4-42e1-ab7f-d8ed81348949
+    subscription: b07e1cd0-fa1b-4975-a59e-e2c4142550be
+  annotations:
+    signalr.net/serviceprocessunit-selector: '{"kubeId":"bfc09ed5-a40c-40f6-a288-12e000257d4c"}'
+  managedFields:
+    - manager: unknown
+      operation: Update
+      apiVersion: v1
+      time: '2024-11-11T05:43:18Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:signalr.net/serviceprocessunit-selector: {}
+          f:labels:
+            .: {}
+            f:resourceKubeId: {}
+            f:resourceName: {}
+            f:resourceRowGuid: {}
+            f:subscription: {}
+        f:spec:
+          f:clusterIP: {}
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":7070,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+            k:{"port":8080,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:sessionAffinity: {}
+          f:type: {}
+spec:
+  ports:
+    - name: https-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: http-port
+      protocol: TCP
+      port: 7070
+      targetPort: 7070
+  clusterIP: None
+  clusterIPs:
+    - None
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+    - IPv6
+  ipFamilyPolicy: RequireDualStack
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}

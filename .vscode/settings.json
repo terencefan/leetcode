@@ -10,5 +10,8 @@
     "java.format.settings.url": "eclipse-formatter.xml",
     "[go]": {
         "editor.defaultFormatter": "golang.go"
+    },
+    "[kotlin]": {
+        "editor.defaultFormatter": "fwcd.kotlin"
     }
 }

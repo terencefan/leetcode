@@ -24,6 +24,10 @@ net.ipv4.tcp_sack=1
 net.ipv4.tcp_timestamps=1
 ```
 
+# HTTPS
+
+TLS 中止，ALPN 协议
+
 # HTTP/2
 
 frame based
