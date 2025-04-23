@@ -289,6 +289,16 @@ I/O 多路复用（epoll / select）
 3. 处理 connection
    - 清理 idle 连接
    - 清理缓冲区
+4. 根据上次内存用量分桶
+
+### databaseCron
+
+1. 随机采样的方式处理过期 key
+   - master, `activeExpireCycle` (slow)
+     - timelimit_exit, check every 16 iterations
+     - `expires_cursor` 记录上一次扫描到的位置
+
+   - slave, `expireSlaveKeys`
 
 
 redis thread 4MB stack size

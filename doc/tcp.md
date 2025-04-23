@@ -24,6 +24,27 @@ net.ipv4.tcp_sack=1
 net.ipv4.tcp_timestamps=1
 ```
 
+## 重传机制
+
+TCP retransmission
+
+```bash
+yum install iproute
+ss -ti
+```
+
+
+- RTO（超时重传）
+  - RTO，默认一秒，根据 RTT 动态调整，经验值 200ms
+- Fast Retransmit（快速重传）
+  - 连续 3 个 DupACK
+- Selective ACK
+  - ACK 包带 SACK
+- Early Retransmit（早期重传）
+  - 发送方剩余未确认<1/2，且受到部分 DupACK（2 个）
+- 重传耗尽（15 次）
+  - TCP RST
+
 # HTTPS
 
 TLS 中止，ALPN 协议
@@ -47,6 +68,7 @@ frame based
 
 - 静态表 (static table)
 - 动态表
+- 哈夫曼编码
 
 ##
 
