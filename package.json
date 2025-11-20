@@ -8,7 +8,7 @@
     "jsonresume-theme-rickosborne": "^2022.9.16-T1450",
     "jsonresume-theme-stackoverflow": "^2.1.0",
     "markdown-pdf": "^11.0.0",
-    "md-to-pdf": "^5.2.4"
+    "md-to-pdf": "^5.2.5"
   },
   "scripts": {
     "resume": "md-to-pdf FANTENGYUAN-enUS.md && md-to-pdf FANTENGYUAN-zhCN.md",
