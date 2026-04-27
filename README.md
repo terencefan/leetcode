@@ -1,9 +1,5 @@
 # leetcode
 
-Coding practice
+算法题练习仓库。
 
-# Json Resume
-
-```bash
-sudo npm install -g resume-cli
-```
+当前保留的内容主要是各语言题解和练习代码；原先混在根目录的简历生成相关文件已经拆分到 `../inority-resume/`。
